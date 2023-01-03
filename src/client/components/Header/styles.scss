@@ -1,0 +1,49 @@
+@use '../../assets/styles/fonts' as text;
+@use '../../assets/styles/colors';
+
+header {
+    position: fixed;
+    width: 100%;
+    padding: 0;
+    height: 12%;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    flex-direction:column;
+    border-bottom: 1px solid var(--color-light-grey);
+    background: var(--color-background-white);
+    //background:red;
+    color: var(--color-text-contrast);
+}
+
+header h1 {
+    @include text.default-font-m;
+}
+
+header button {
+    background: transparent;
+    border:none;
+    @include text.default-font-s;
+    color:var(--color-light-grey);
+    position: absolute;
+    right: 8%;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+
+}
+
+header img {
+    width: 20Px;
+    margin-right:5px;
+}
+
+header a,
+header a:visited,
+header a:hover,
+header a:active {
+color: var(--color-text-contrast);
+text-transform: none;
+text-decoration: none;
+}
+

@@ -1,47 +1,79 @@
+const webpack = require('webpack');
 const path = require("path");
-const webpack = require("webpack");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-module.exports = {
-    entry: "./src/index.js",
-    mode: "development",
-    module: {
-      rules: [
-        {
-          test: /\.(js|jsx)$/,
-          exclude: /(node_modules|bower_components)/,
-          loader: "babel-loader",
-          options: { presets: ["@babel/env"] }
+
+const isDevelopment = process.env.NODE_ENV !== 'production';
+//console.log(process.env.NODE_ENV)
+
+
+const dist = path.join(__dirname, 'dist');
+
+module.exports = [
+    {
+        name: 'client',
+        mode: 'development',
+        target: 'web',
+        entry: ['./src/client/index.js', 'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000&reload=true',],
+        output: {
+            path: dist,
+            filename: 'client.js'
         },
-        {
-            test: /\.svg$/i,
-            issuer: /\.[jt]sx?$/,
-            use: ['@svgr/webpack'],
-          },
-        {
-            test: /\.scss$/,
-              use: [{
-                loader: "style-loader"
-              }, {
-                loader: "css-loader" 
-              }, {
-                loader: "sass-loader"
-              }]
+        devtool: 'source-map',
+        module: {
+        rules: [
+            {
+                test: /\.(js|jsx)$/,
+                exclude: /node_modules/,
+                use: ['babel-loader']
             },
-      ]
+            {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader']
+            },
+            {
+                test: /\.s[ac]ss$/,
+                exclude: /node_modules/,
+                use: ['style-loader', 'css-loader', 'sass-loader']
+            },
+            {
+             test: /\.(png|jpe?g|svg)$/i,
+              use: 'file-loader'
+          }
+        ],
     },
-    resolve: { extensions: ["*", ".js", ".jsx"] },
-    output: {
-      path: path.resolve(__dirname, "dist/"),
-      publicPath: "/dist/",
-      filename: "bundle.js"
-    },
-    devServer: {
-        static: {
-            directory: path.resolve('./public'),
+    plugins: [
+      new webpack.HotModuleReplacementPlugin(),
+  ],
+    }, {
+        name: 'server',
+        mode: 'development',
+        target: 'node',
+        entry: './src/server/renderToString',
+        output: {
+            path: dist,
+            filename: 'server.js',
+            libraryTarget: 'commonjs2'
         },
-        compress: true,
-        hot: true,
-        port: 3000,
+        devtool: 'source-map',
+            module: {
+        rules: [
+            {
+                test: /\.(js|jsx)$/,
+                exclude: /node_modules/,
+                use: ['babel-loader']
+            },
+          {
+              test: /\.s[ac]ss$/,
+              exclude: /node_modules/,
+              use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
+          },
+            {
+             test: /\.(png|jpe?g|svg)$/i,
+              use: 'file-loader'
+          }
+         ],
     },
-    plugins: [new webpack.HotModuleReplacementPlugin()]
-  };
+    plugins: [new MiniCssExtractPlugin()],
+    }
+];
