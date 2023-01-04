@@ -1,0 +1,35 @@
+.carousel {
+    width: 95%;
+    height: 30%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    display: flex;
+    margin-bottom:40Px;
+    position: relative;
+}
+
+.carousel img {
+    height:100%;
+    margin: 0 10px;
+    border-radius:6px;
+
+}
+
+.carousel-next {
+    position:absolute;
+    top:0;
+    right:0;
+    top:50%;
+    cursor:pointer;
+}
+
+// .carousel:before {
+//     content:"";
+//     position: fixed;
+//     width: 95%;
+//     height: 30%;
+//     overflow-x: scroll;
+//     overflow-y: hidden;
+//     background-image: linear-gradient(to right, transparent 85%, #fff);
+// }
+
