@@ -3,15 +3,15 @@ import {
     createBrowserRouter,
     Outlet,
 } from "react-router-dom";
-import { Home } from "./pages/Home";
-import { ProductDetails } from "./pages/ProductDetails";
-import { Wishlist } from "./pages/Wishlist";
-import { App } from "./App";
+import { Home } from "./pages/Home/index.jsx";
+import { ProductDetails } from "./pages/ProductDetails/index.jsx";
+import { Wishlist } from "./pages/Wishlist/index.jsx";
+import App from "./App.jsx";
 
 export const router = createBrowserRouter([
     {
         path: "/",
-        element: <><App /><Outlet /></>,
+        element:  <><App /><Outlet /></>,
         children: [
             {
                 path: "home",

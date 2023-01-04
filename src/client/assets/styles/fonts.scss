@@ -1,0 +1,16 @@
+$default-font-style: "Futura-Medium", "Century Gothic","Gill Sans",Helvetica,Arial,sans-serif;
+
+@mixin default-font-s {
+    font-family: $default-font-style;
+    font-size: 1rem;
+  }
+
+  @mixin default-font-m {
+    font-family: $default-font-style;
+    font-size: 1.2rem;
+  }
+
+  @mixin default-font-l {
+    font-family: $default-font-style;
+    font-size: 1.5rem;
+  }

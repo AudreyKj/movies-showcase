@@ -1,0 +1,16 @@
+@use 'assets/styles/fonts' as text;
+@use 'assets/styles/colors';
+  
+  body {
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    @include text.default-font-s;
+    background: var(--color-background-white);
+    color: var(--color-text-contrast);
+  }
+
+
+
+
+  
