@@ -31,9 +31,9 @@ export const Home = () => {
 
     return(
         <section className="home">
-            <Carousel images={comedyMoviesList}/>
-            <Carousel images={westernMoviesList}/>
-            <Carousel images={musicMoviesList}/>
+            {comedyMoviesList && comedyMoviesList.length > 0 && <Carousel images={comedyMoviesList}/>}
+            {westernMoviesList && westernMoviesList.length > 0 && <Carousel images={westernMoviesList}/>}
+            {musicMoviesList && musicMoviesList.length > 0 && <Carousel images={musicMoviesList}/>}
         </section>
     )
 }
