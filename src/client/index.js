@@ -8,10 +8,3 @@ import {router} from "./router";
 
 const container = document.getElementById('root');
 hydrateRoot(container, <RouterProvider router={router} />);
-
-// ReactDOM.hydrate(
-//   <BrowserRouter>
-//     <App />
-//   </BrowserRouter>,
-//   document.documentElement
-// );
