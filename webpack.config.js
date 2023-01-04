@@ -53,7 +53,7 @@ module.exports = [
     mode: 'development',
     target: 'node',
     devtool: 'source-map',
-    entry: './src/server/renderer',
+    entry: './src/serverRendering/renderer',
     output: {
       path: dist,
       filename: 'server.js',

@@ -6,7 +6,7 @@
   "author": "Audrey Kadjar",
   "scripts": {
     "lint": "eslint --fix --ext .js,.jsx",
-    "dev": "NODE_ENV=development nodemon src/server/index.js",
+    "dev": "NODE_ENV=development nodemon src/api/index.js && nodemon src/serverRendering/index.js",
     "build": "webpack --mode=production"
   },
   "devDependencies": {
@@ -21,8 +21,11 @@
     "@babel/preset-env": "^7.20.2",
     "@babel/preset-react": "^7.18.6",
     "@babel/register": "^7.18.9",
+    "axios": "^1.2.2",
     "babel-loader": "^9.1.0",
+    "cors": "^2.8.5",
     "css-loader": "^6.7.3",
+    "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",

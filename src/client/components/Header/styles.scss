@@ -3,9 +3,9 @@
 
 header {
     position: fixed;
+    z-index:1;
     width: 100%;
-    padding: 0;
-    height: 12%;
+    padding: 5px 0;
     display:flex;
     justify-content: center;
     align-items:center;
