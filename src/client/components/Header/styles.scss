@@ -18,6 +18,7 @@ header {
 
 header h1 {
     @include text.default-font-m;
+    cursor:pointer;
 }
 
 header button {

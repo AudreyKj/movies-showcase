@@ -4,14 +4,14 @@ import {
     Outlet,
 } from "react-router-dom";
 import { Home } from "./pages/Home/index.jsx";
-import { ProductDetails } from "./pages/ProductDetails/index.jsx";
+import { ItemDetail } from "./pages/ItemDetail/index.jsx";
 import { Wishlist } from "./pages/Wishlist/index.jsx";
 import App from "./App.jsx";
 
 export const router = createBrowserRouter([
     {
         path: "/",
-        element:  <><App /><Outlet /></>,
+        element: <App />,
         children: [
             {
                 path: "home",
@@ -19,7 +19,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "movies/:movieId",
-                element: <ProductDetails />,
+                element: <ItemDetail />,
             },
             {
                 path: "mywishlist",

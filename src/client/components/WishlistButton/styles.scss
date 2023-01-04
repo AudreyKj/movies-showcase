@@ -1,0 +1,19 @@
+@use '../../assets/styles/fonts' as text;
+@use '../../assets/styles/colors';
+
+button.wishlist-action {
+    padding: 15px;
+    border-radius:6px;
+    /* opacity: 0.6; */
+    transition: 0.3s;
+    text-align: center;
+    margin-top: 1Opx;
+    margin-top: 20px;
+    border: none;
+    cursor:pointer;
+
+}
+
+button.wishlist-action:hover {
+    opacity:1;
+}

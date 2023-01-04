@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, Suspense} from "react";
 import axios from "axios";
 import {Carousel} from "../../components/Carousel/index.jsx";
 import "./styles.scss";
@@ -32,10 +32,10 @@ export const Home = () => {
 
     return(
         <section className="home">
-            {error && <p> Error: movie list could not be fetched. Please try again later! </p>}
-            {comedyMoviesList && comedyMoviesList.length > 0 && <Carousel images={comedyMoviesList}/>}
-            {westernMoviesList && westernMoviesList.length > 0 && <Carousel images={westernMoviesList}/>}
-            {musicMoviesList && musicMoviesList.length > 0 && <Carousel images={musicMoviesList}/>}
+           {error && <p> Error: movie list could not be fetched. Please try again later! </p>}
+            <Suspense fallback={<p>loading</p>}><Carousel images={comedyMoviesList} genre="comedy" /></Suspense>
+            {westernMoviesList && westernMoviesList.length > 0 && <Carousel images={westernMoviesList} genre="western"/>}
+            {musicMoviesList && musicMoviesList.length > 0 && <Carousel images={musicMoviesList} genre="music"/>} 
         </section>
     )
 }

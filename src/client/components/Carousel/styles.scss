@@ -6,11 +6,14 @@
 }
 
 .carousel-scroll {
+    width:100%;
+    height:100%;
     overflow-x: scroll;
     overflow-y: hidden;
     display: flex;
-    width:100%;
-    height:100%;
+    list-style-type: none;
+    margin:0;
+    padding:0;
 }
 
 .carousel-scroll {
@@ -22,21 +25,25 @@
     display: none;
   }
 
-.carousel-scroll:before {
-    content:"";
-    position: absolute;
-    top:0;
-    bottom:0;
-    left:0;
-    right:0;
-    width:100%;
-    height:100%;
-    background-image: linear-gradient(to right, transparent 95%, #fff);
+// .carousel-scroll:before {
+//     content:"";
+//     position: absolute;
+//     top:0;
+//     bottom:0;
+//     left:90%;
+//     right:0;
+//     width:100%;
+//     height:100%;
+//     background-image: linear-gradient(to right, transparent 95%, #fff);
+// }
+
+.carousel-scroll  li {
+    margin: 0 10px;
+    cursor:pointer;
 }
 
 .carousel img {
     height:100%;
-    margin: 0 10px;
     border-radius:6px;
 
 }
