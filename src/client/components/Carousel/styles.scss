@@ -39,13 +39,12 @@
 
 .carousel-scroll  li {
     margin: 0 10px;
+    transition: all 0.4s;
     cursor:pointer;
 }
 
-.carousel img {
-    height:100%;
-    border-radius:6px;
-
+.carousel-scroll li:hover {
+    opacity:0.4;
 }
 
 .carousel-next {

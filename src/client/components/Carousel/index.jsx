@@ -1,21 +1,18 @@
 import React from "react";
 import {useNavigate} from "react-router-dom";
+import {PosterImage} from "../../components/PosterImage/index.jsx";
 import "./styles.scss";
 
-export const Carousel = ({ images, genre }) => {
+export const Carousel = ({ movieList, genre }) => {
     const navigate = useNavigate();
 
     return (
         <section className="carousel" >
             <ul className="carousel-scroll">
-                {images.map((movie) => {
+                {movieList.map(movieItem => {
                     return (
-                        <li key={movie.id} onClick={() => navigate(`/movies/${movie.id}`, {state: {genre, ...movie}})}>
-                            <img
-                                src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
-                                loading="lazy"
-                                alt="movie poster"
-                            />
+                        <li key={movieItem.id} onClick={() => navigate(`/movies/${movieItem.id}`, {state: {genre, ...movieItem}})}>
+                           <PosterImage isCarousel={true} posterPath={movieItem.poster_path}/>
                         </li>
                     )
                 })}

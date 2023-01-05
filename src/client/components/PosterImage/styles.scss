@@ -1,0 +1,9 @@
+@use '../../assets/styles/fonts' as text;
+@use '../../assets/styles/colors';
+
+.movie-poster-img {
+    height:100%;
+    border-radius:6px;
+    transition: all 0.4s;
+    box-shadow: 0 0.2rem 0.4rem rgb(0 0 0 / 31%);
+}

@@ -1,19 +1,31 @@
 @use '../../assets/styles/fonts' as text;
 @use '../../assets/styles/colors';
 
-button.wishlist-action {
+.wishlist-action {
     padding: 15px;
     border-radius:6px;
-    /* opacity: 0.6; */
-    transition: 0.3s;
+    transition: all 0.3s;
     text-align: center;
-    margin-top: 1Opx;
-    margin-top: 20px;
     border: none;
-    // cursor:pointer;
-
+    color: var(--color-text-contrast);
 }
 
-button.wishlist-action:hover {
-    opacity:1;
+.wishlist-action:hover {
+    opacity:0.6;
+}
+
+.button-comedy {
+    @include text.comedy-genre-font-s;
+    background:var(--color-background-button-comedy);
+}
+
+.button-western {
+    @include text.western-genre-font-s;
+    background:var(--color-background-button-western);
+}
+
+.button-music {
+    @include text.music-genre-font-s;
+    background-color:#add8e6;
+    background:var(--color-background-button-music);
 }

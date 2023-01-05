@@ -33,9 +33,9 @@ export const Home = () => {
     return(
         <section className="home">
            {error && <p> Error: movie list could not be fetched. Please try again later! </p>}
-            <Suspense fallback={<p>loading</p>}><Carousel images={comedyMoviesList} genre="comedy" /></Suspense>
-            {westernMoviesList && westernMoviesList.length > 0 && <Carousel images={westernMoviesList} genre="western"/>}
-            {musicMoviesList && musicMoviesList.length > 0 && <Carousel images={musicMoviesList} genre="music"/>} 
+            <Suspense fallback={<p>loading</p>}><Carousel movieList={comedyMoviesList} genre="comedy" /></Suspense>
+            {westernMoviesList && westernMoviesList.length > 0 && <Carousel movieList={westernMoviesList} genre="western"/>}
+            {musicMoviesList && musicMoviesList.length > 0 && <Carousel movieList={musicMoviesList} genre="music"/>} 
         </section>
     )
 }
