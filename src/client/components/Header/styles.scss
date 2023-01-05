@@ -26,7 +26,7 @@ header button {
     background: transparent;
     border:none;
     @include text.default-font-s;
-    color:var(--color-light-grey);
+    color:var(--color-grey);
     position: absolute;
     right: 8%;
     display:flex;
@@ -40,12 +40,18 @@ header img {
     margin-right:5px;
 }
 
-header a,
-header a:visited,
-header a:hover,
-header a:active {
+.default-nav-link,
+.default-nav-link:visited,
+.default-nav-link:hover,
+.default-nav-link:active {
 color: var(--color-text-contrast);
 text-transform: none;
 text-decoration: none;
+}
+
+.active-nav-link {
+color: var(--color-text-contrast);
+text-transform: none;
+text-decoration: underline;
 }
 

@@ -1,6 +1,6 @@
 import React from "react";
 import {
-    Link
+    NavLink
 } from "react-router-dom";
 import {useNavigate} from "react-router-dom";
 import wishlistIcon from "../../assets/icons/wishlist.svg";
@@ -13,7 +13,10 @@ export const Header = () => {
     return(
         <header>
             <h1 onClick={() => navigate("/home")}> My movies Showcase</h1>
-            <button> <img src={wishlistIcon} alt="wishlist" /> <Link to="mywishlist"> my wishlist</Link> </button> 
+            <button> <img src={wishlistIcon} alt="wishlist" /> <NavLink to="mywishlist" className={({ isActive }) =>
+              isActive ? "active-nav-link" : "default-nav-link"
+            }
+          > my wishlist</NavLink> </button> 
         </header>
     )
 }
