@@ -43,12 +43,10 @@
 }
 
 .poster-image {
+    max-height:95%;
+    max-width:30%;
     height:95%;
-    width:35%;
-}
-
-.poste-image img {
-    border-radius:6px;
+    width:30%;
 }
 
 .info {

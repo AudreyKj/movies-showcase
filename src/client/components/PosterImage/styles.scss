@@ -5,15 +5,15 @@
     height:100%;
     width:100%;
     border-radius:6px;
-    transition: opacity 0.3s;
+    transition: opacity 0.5s;
     opacity:1;
-    object-fit: contain;
 }
 
 
 .img-invisible {
     opacity:0;
     width:0;
+    height:0;
 }
 
 .movie-poster-img--loading-skeleton {

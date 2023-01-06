@@ -1,7 +1,7 @@
 import React from "react";
 import {
     createBrowserRouter,
-    Outlet,
+    Navigate
 } from "react-router-dom";
 import { Home } from "./pages/Home/index.jsx";
 import { ItemDetail } from "./pages/ItemDetail/index.jsx";
@@ -10,12 +10,17 @@ import App from "./App.jsx";
 
 export const router = createBrowserRouter([
     {
-        path: "/",
         element: <App />,
+        errorElement: <Navigate to="/home" />,
         children: [
+            {
+                path: "/",
+                element: <Navigate to="/home" />
+            },
             {
                 path: "home",
                 element: <Home />,
+                index: true,
             },
             {
                 path: "movies/:movieId",

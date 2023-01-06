@@ -17,4 +17,8 @@ app.use(webpackDevMiddleware(compiler, {
 app.use(webpackHotMiddleware(compiler.compilers.find(compiler => compiler.name === 'client')));
 app.use(webpackHotServerMiddleware(compiler));
 
+app.get("/", (res, req) => {
+  res.redirect('/home')
+})
+
 app.listen(port);
