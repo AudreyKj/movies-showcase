@@ -19,7 +19,9 @@ export const ItemDetail = () => {
             <section className="details-wrapper">
                 <div className="details">
                     <div className="image-area">
-                    <PosterImage posterPath={poster_path}/>
+                        <div className="poster-image">
+                            <PosterImage posterPath={poster_path} />
+                        </div>
                     </div>
                     <div className="info">
                         <WishlistButton genre={genre} title={original_title} imgUrl={poster_path} />

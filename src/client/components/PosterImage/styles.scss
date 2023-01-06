@@ -3,7 +3,25 @@
 
 .movie-poster-img {
     height:100%;
+    width:100%;
     border-radius:6px;
-    transition: all 0.4s;
-    box-shadow: 0 0.2rem 0.4rem rgb(0 0 0 / 31%);
+    transition: opacity 0.3s;
+    opacity:1;
+    object-fit: contain;
 }
+
+
+.img-invisible {
+    opacity:0;
+    width:0;
+}
+
+.movie-poster-img--loading-skeleton {
+    background-color: #ccc;
+    border-radius:6px;
+    height:100%;
+    width:100%;
+}
+
+
+

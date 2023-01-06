@@ -3,8 +3,10 @@ import {useNavigate} from "react-router-dom";
 import {PosterImage} from "../../components/PosterImage/index.jsx";
 import "./styles.scss";
 
-export const Carousel = ({ movieList, genre }) => {
+const Carousel = ({ movieList, genre }) => {
     const navigate = useNavigate();
+
+    console.log("movieList", movieList);
 
     return (
         <section className="carousel" >
@@ -20,3 +22,5 @@ export const Carousel = ({ movieList, genre }) => {
         </section>
     )
 }
+
+export default Carousel;

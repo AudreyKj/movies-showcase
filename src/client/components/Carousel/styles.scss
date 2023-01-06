@@ -41,6 +41,9 @@
     margin: 0 10px;
     transition: all 0.4s;
     cursor:pointer;
+    width:135px;
+    height:200px;
+    flex-shrink: 0;
 }
 
 .carousel-scroll li:hover {
