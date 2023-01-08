@@ -1,78 +1,79 @@
-@use '../../assets/styles/fonts' as text;
-@use '../../assets/styles/colors';
+@use "../../assets/sass/fonts" as text;
+@use "../../assets/sass/colors";
+@use "../../assets/sass/layout";
 
-.item-wrapper {
-    width:100%;
-    height:100%;
-    padding-top:8%;  
+.item-details {
+  width: 100%;
+  height: 100%;
 }
 
-.comedy {
-    @include text.comedy-genre-font-s;
+.item-details_comedy {
+  @include text.comedy-genre-font-s;
 }
 
-.western {
-    @include text.western-genre-font-s;
+.item-details_western {
+  @include text.western-genre-font-s;
 }
 
-.music {
-    @include text.music-genre-font-s;
+.item-details_music {
+  @include text.music-genre-font-s;
 }
 
-.details-wrapper {
-    width:100%;
-    height:50%;
-    display:flex;
-    justify-content: center;
+.item-details__img-description-wrapper {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
 }
 
-.details {
-    display:flex;
-    width:90%;
+.item-details__img-description-container {
+  display: flex;
 }
 
-.image-area {
-    width:60%;
-    height:100%;
-    border: 1px solid var(--color-grey);
-    border-radius:6px;
-    padding:10px 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.item-details__image-area {
+  width: 60%;
+  height: 100%;
+  padding: 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include layout.rounded-grey-border;
 }
 
-.poster-image {
-    max-height:95%;
-    max-width:30%;
-    height:95%;
-    width:30%;
+.item-details__poster-image {
+  height: 95%;
+  width: 30%;
+  max-height: 95%;
+  max-width: 30%;
 }
 
-.info {
-    width:40%;
-    height:100%;
-    margin-left:20px;
-    border: 1px solid var(--color-grey);
-    border-radius:6px;
-    padding:10px 20Px;
+.item-details__cta-description {
+  width: 40%;
+  height: 100%;
+  margin-left: 20px;
+  padding: 10px 20px;
+
+  @include layout.rounded-grey-border;
+
+  button {
+    margin-bottom: 20px;
+  }
+}
+
+.container__info p {
+  line-height: 1.2;
 }
 
 .additional-info-wrapper {
-    width:100%;
-    display:flex;
-    justify-content: center;
+  width: 100%;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+
+  @include layout.rounded-grey-border;
 }
 
-.additional-info {
-    width:90%;
-    text-align:center;
-    border: 1px solid var(--color-grey);
-    border-radius:6px;
-    margin:40Px;
-   
-}
-
-.additional-info li {
-    list-style-type: none;
+.additional-info-wrapper__list {
+  list-style: circle;
 }

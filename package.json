@@ -5,14 +5,17 @@
   "license": "MIT",
   "author": "Audrey Kadjar",
   "scripts": {
-    "lint": "eslint --fix --ext .js,.jsx",
+    "lint": "eslint --fix --ext .js,.jsx --fix && npx stylelint '**/*.scss' --fix",
     "dev": "NODE_ENV=development nodemon src/api/index.js && nodemon src/serverRendering/index.js",
     "build": "webpack --mode=production"
   },
   "devDependencies": {
     "concurrently": "^7.6.0",
     "eslint": "^8.30.0",
-    "nodemon": "^2.0.20"
+    "nodemon": "^2.0.20",
+    "stylelint": "^14.16.1",
+    "stylelint-scss": "^4.3.0",
+    "stylelint-selector-bem-pattern": "^2.1.1"
   },
   "dependencies": {
     "@babel/cli": "^7.20.7",

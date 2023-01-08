@@ -1,5 +1,4 @@
-import React, { useState, useEffect, Suspense } from "react";
-//const Carousel = React.lazy(() => import('../../components/Carousel/index.jsx'));
+import React, { useState, useEffect} from "react";
 import axios from "axios";
 import Carousel from "../../components/Carousel/index.jsx";
 import { Loader } from "../../components/Loader/index.jsx";
@@ -18,7 +17,10 @@ export const Home = () => {
         axios.get("http://localhost:8080/movies/genre/comedy").then(({ data }) => {
             console.log(data)
             setComedyMoviesList(data)
-        }).catch(() => setError(true))
+        }).catch((error) => {
+            console.log("error", error)
+            setError(true)
+        })
     }, [])
 
     useEffect(() => {
@@ -35,18 +37,24 @@ export const Home = () => {
         }).catch(() => setError(true))
     }, [])
 
-    if (isDataLoading) {
+    const HomeLayout = ({ children }) => {
         return (
-            <section className="home"><p>collection loading...</p> <Loader /></section>
+            <section className="home">{children}</section>
+        )
+    }
+
+    if (isDataLoading && !error) {
+        return (
+            <HomeLayout><Loader /></ HomeLayout>
         )
     }
 
     return (
-        <section className="home">
+        <HomeLayout>
             {error && <p> Error: movie list could not be fetched. Please try again later! </p>}
             {isListDataReady(westernMoviesList) && <Carousel movieList={westernMoviesList} genre="western" />}
             {isListDataReady(musicMoviesList) && <Carousel movieList={musicMoviesList} genre="music" />}
             {isListDataReady(comedyMoviesList) && <Carousel movieList={comedyMoviesList} genre="comedy" />}
-        </section>
+        </HomeLayout>
     )
 }

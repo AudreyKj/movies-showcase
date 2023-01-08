@@ -1,57 +1,73 @@
-@use '../../assets/styles/fonts' as text;
-@use '../../assets/styles/colors';
+@use "../../assets/sass/fonts" as text;
+@use "../../assets/sass/colors";
+@use "../../assets/sass/layout";
 
-header {
-    position: fixed;
-    z-index:1;
-    width: 100%;
-    padding: 5px 0;
-    display:flex;
-    justify-content: center;
-    align-items:center;
-    flex-direction:column;
-    border-bottom: 1px solid var(--color-light-grey);
-    background: var(--color-background-white);
-    opacity:0.8;
-    //background:red;
-    color: var(--color-text-contrast);
+.header {
+  width: 100%;
+  height: 7%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: var(--color-extra-light-grey);
+  color: var(--color-text-contrast);
+
+  @include layout.rounded;
+
+  z-index: 1;
 }
 
-header h1 {
-    @include text.default-font-m;
-    cursor:pointer;
+.header__heading {
+  @include text.default-font-m;
+
+  cursor: pointer;
 }
 
-header button {
-    background: transparent;
-    border:none;
-    @include text.default-font-s;
-    color:var(--color-grey);
-    position: absolute;
-    right: 8%;
-    display:flex;
-    justify-content: center;
-    align-items:center;
-
+.header__nav {
+  position: absolute;
+  right: 8%;
 }
 
-header img {
-    width: 20Px;
-    margin-right:5px;
+.header__nav-list {
+  list-style: none;
 }
 
-.default-nav-link,
-.default-nav-link:visited,
-.default-nav-link:hover,
-.default-nav-link:active {
-color: var(--color-text-contrast);
-text-transform: none;
-text-decoration: none;
+.header__wishlist-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  border: none;
+
+  @include text.default-font-s;
+
+  transition: opacity 0.4s;
+
+  &:hover {
+    opacity: 0.6;
+  }
 }
 
-.active-nav-link {
-color: var(--color-text-contrast);
-text-transform: none;
-text-decoration: underline;
+.header__wishlist-icon {
+  width: 20px;
+  margin-right: 5px;
 }
 
+.header__nav-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-text-contrast);
+  text-transform: none;
+  text-decoration: none;
+
+  &:visited,
+  &:hover,
+  &:active {
+    opacity: 0.6;
+  }
+}
+
+.nav-link_active {
+  opacity: 0.6;
+}

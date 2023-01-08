@@ -1,31 +1,45 @@
-@use '../../assets/styles/fonts' as text;
-@use '../../assets/styles/colors';
+@use "../../assets/sass/fonts" as text;
+@use "../../assets/sass/colors";
+@use "../../assets/sass/layout";
 
-.wishlist-action {
-    padding: 15px;
-    border-radius:6px;
-    transition: all 0.3s;
-    text-align: center;
-    border: none;
-    color: var(--color-text-contrast);
+.wishlist-cta {
+  padding: 15px;
+  text-align: center;
+  border: none;
+  color: var(--color-text-contrast);
+
+  @include layout.rounded;
+
+  transition: all 0.3s;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.6;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
 }
 
-.wishlist-action:hover {
-    opacity:0.6;
+.wishlist-cta_comedy {
+  @extend .wishlist-cta;
+  @include text.comedy-genre-font-s;
+
+  background: var(--color-background-button-comedy);
 }
 
-.button-comedy {
-    @include text.comedy-genre-font-s;
-    background:var(--color-background-button-comedy);
+.wishlist-cta_western {
+  @extend .wishlist-cta;
+  @include text.western-genre-font-s;
+
+  background: var(--color-background-button-western);
 }
 
-.button-western {
-    @include text.western-genre-font-s;
-    background:var(--color-background-button-western);
-}
+.wishlist-cta_music {
+  @extend .wishlist-cta;
+  @include text.music-genre-font-s;
 
-.button-music {
-    @include text.music-genre-font-s;
-    background-color:#add8e6;
-    background:var(--color-background-button-music);
+  background: var(--color-background-button-music);
 }

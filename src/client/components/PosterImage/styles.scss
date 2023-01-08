@@ -1,27 +1,38 @@
-@use '../../assets/styles/fonts' as text;
-@use '../../assets/styles/colors';
+@use "../../assets/sass/fonts" as text;
+@use "../../assets/sass/colors";
+@use "../../assets/sass/layout";
 
-.movie-poster-img {
-    height:100%;
-    width:100%;
-    border-radius:6px;
-    transition: opacity 0.5s;
-    opacity:1;
+.poster-img,
+.poster-img_placeholder {
+  height: 100%;
+  width: 100%;
+
+  @include layout.rounded;
 }
 
-
-.img-invisible {
-    opacity:0;
-    width:0;
-    height:0;
+.poster-img {
+  opacity: 1;
+  transition: opacity 0.5s;
 }
 
-.movie-poster-img--loading-skeleton {
-    background-color: #ccc;
-    border-radius:6px;
-    height:100%;
-    width:100%;
+.poster-img_placeholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-extra-light-grey);
 }
 
+.poster-img_invisible {
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
 
+.poster-img_error {
+  padding: 0 5px;
+  color: var(--color-grey);
 
+  @include text.default-font-xs;
+
+  text-align: center;
+}

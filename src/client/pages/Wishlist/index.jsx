@@ -4,47 +4,52 @@ import { PosterImage } from "../../components/PosterImage/index.jsx";
 import "./styles.scss";
 
 export const Wishlist = () => {
-    const [wishlistItemList, setWishlistItemList] = useState(null);
+    const [wishlistItemList, setWishlistItemList] = useState([]);
+    const isWishlistEmpty = wishlistItemList && wishlistItemList.length === 0;
 
     useEffect(() => {
-        formatWishlistItemsList();
+        getWishlistItems();
     }, []);
 
-    const formatWishlistItemsList = () => {
+    const getWishlistItems = () => {
         const itemsArr = Object.entries(localStorage);
-        if (itemsArr.length === 0) {
-            setWishlistItemList([]);
-        } else {
-            const formattedList = itemsArr.map(elem => elem = { "imgUrl": elem[1] });
-            setWishlistItemList(formattedList);
-        }
+        const formattedList = [];
+
+        itemsArr.forEach(elem => {
+            if (elem[0] !== "sync_storageMap") {
+                formattedList.push({ "imgUrl": elem[1] });
+            }
+        });
+        setWishlistItemList(formattedList);
     }
 
-    const EmptyWishlistMessage = () => {
+    const EmptyWishlistText = () => {
         return (
-            <section className="wishlist--empty">
+            <>
                 <p>There are no items on your wishlist.</p>
                 <p>Check out our collection and start adding to your wishlist now!</p>
-                <button><Link to="/home">Browse movies</Link></button>
-            </section>
+                <button className="wishlist_empty-cta"><Link to="/home">Browse movies</Link></button>
+            </>
         )
     }
 
     return (
         <section className="wishlist">
-            {wishlistItemList && Array.isArray(wishlistItemList) && wishlistItemList.length > 0 ?
-                <p className="wishlist--item-count">Wishlist: {wishlistItemList.length} item(s)</p>
-                : <EmptyWishlistMessage />}
-            {wishlistItemList && wishlistItemList.length > 0 && (
-                <ul className="wishlist-items">
-                    {wishlistItemList.map(({ imgUrl }) => {
-                        return (
-                            <li key={imgUrl}>
-                                <PosterImage posterPath={imgUrl} />
-                            </li>
-                        )
-                    })}
-                </ul>
+            {isWishlistEmpty ? (
+                <EmptyWishlistText />
+            ) : (
+                <>
+                    <p>Wishlist: {wishlistItemList.length} item(s)</p>
+                    <ul className="wishlist__list">
+                        {wishlistItemList.map(({ imgUrl }) => {
+                            return (
+                                <li key={imgUrl} className="wishlist__item">
+                                    <PosterImage posterPath={imgUrl} />
+                                </li>
+                            )
+                        })}
+                    </ul>
+                </>
             )}
         </section>
     )

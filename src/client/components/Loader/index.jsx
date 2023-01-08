@@ -1,13 +1,12 @@
 import React from "react";
 import "./styles.scss";
 
-export const Loader = ({active = true}) => {
-
+export const Loader = () => {
     return (
         <div
-            className={['spinner', active && 'spinner--active'].join(' ')}
-            role="progressbar"
-            aria-busy={active ? 'true' : 'false'}
+            className="loader"
+            role="status"
+            aria-busy="true"
         />
     )
 }

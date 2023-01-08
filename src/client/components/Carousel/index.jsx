@@ -10,11 +10,11 @@ const Carousel = ({ movieList, genre }) => {
 
     return (
         <section className="carousel" >
-            <ul className="carousel-scroll">
+            <ul className="carousel__list">
                 {movieList.map(movieItem => {
                     return (
-                        <li key={movieItem.id} onClick={() => navigate(`/movies/${movieItem.id}`, {state: {genre, ...movieItem}})}>
-                           <PosterImage isCarousel={true} posterPath={movieItem.poster_path}/>
+                        <li className="carousel__item" key={movieItem.id} onClick={() => navigate(`/movies/${movieItem.id}`, {state: {genre, ...movieItem}})} >
+                           <PosterImage posterPath={movieItem.poster_path}/>
                         </li>
                     )
                 })}

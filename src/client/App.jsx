@@ -1,16 +1,18 @@
 import React from "react";
 import { Header } from "./components/Header/index.jsx";
 import {
-    Outlet, 
+    Outlet,
 } from "react-router-dom";
-import './styles.scss'
+import './main.scss';
 
 
 const App = () => {
     return (
         <>
             <Header />
-            <Outlet />
+            <section className="pages-content">
+                <Outlet />
+            </section>
         </>
     )
 }
