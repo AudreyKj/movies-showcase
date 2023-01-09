@@ -19,8 +19,16 @@
 
 .header__heading {
   @include text.default-font-m;
-
   cursor: pointer;
+
+  a, 
+  a:hover,
+  a:visited,
+  a:active {
+    color: var(--color-text-contrast);
+    text-decoration: none;
+    text-transform: none;
+  }
 }
 
 .header__nav {

@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import PosterImagePlaceholder from "./PosterImagePlaceholder";
+import PosterImagePlaceholder from './PosterImagePlaceholder';
 import './styles.scss';
 
 const PosterImage = ({ posterPath }) => {
   const [loaded, setLoaded] = useState(false);
   const [error, setError] = useState(false);
 
-  const isImageLoading = !loaded && !error;
+  const isLoadingProgress = !loaded && !error;
   const isLoadingSuccessful = !error;
 
   const handleImageLoaded = () => setLoaded(true);
@@ -14,14 +14,14 @@ const PosterImage = ({ posterPath }) => {
 
   return (
     <>
-      {isImageLoading && <PosterImagePlaceholder />}
+      {isLoadingProgress && <PosterImagePlaceholder />}
 
       {isLoadingSuccessful ? (
         <img
           onLoad={handleImageLoaded}
           onError={handleImageLoadError}
           className={loaded ? 'poster-img' : 'poster-img_invisible'}
-          src={`https://image.tmdb.org/t/p/w500/${posterPath}`}
+          src={`https://image.tmdb.org/t/p/w500${posterPath}`}
           alt="movie poster"
         />
       ) : (
