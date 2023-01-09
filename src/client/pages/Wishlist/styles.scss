@@ -4,7 +4,6 @@
 
 .wishlist {
   width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,7 +15,6 @@
 
 .wishlist__list {
   width: 100%;
-  height: 100%;
   margin: 0;
   padding: 0;
   display: flex;
@@ -25,13 +23,23 @@
 }
 
 .wishlist__item {
-  width: 135px;
-  height: 200px;
   margin: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  padding:15px;
+  @include layout.rounded-grey-border;
+
+  img {
+    width:100px;
+    height:140px;
+  }
+}
+
+.wishlist__item-title {
+  margin-top:10px;
+  @include text.default-font-xs;
 }
 
 .wishlist_empty-cta {
