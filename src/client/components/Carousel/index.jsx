@@ -1,5 +1,4 @@
 import React, { useRef } from 'react';
-import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 import PosterImage from '../PosterImage';
 import useIsInViewport from './useInViewport';
@@ -45,16 +44,16 @@ const Carousel = ({ movieList, genre }) => {
   };
 
   return (
-    <section className="carousel">
+    <section className="carousel" data-testid={`carousel-element-${genre}`}>
       {isPrevButtonVisible && (
       <button type="button" className="carousel__arrow-button prev-item-cta" onClick={handlePrevClick}>
         <img src={arrowLeftIcon} alt="arrow left" />
       </button>
       )}
-      <ul ref={carouselRef} className="carousel__list">
+      <ul ref={carouselRef} className="carousel__list" data-testid="carousel-list">
         {movieList.map((movieItem, index) => (
           <li className="carousel__item" key={movieItem.id} ref={index === 0 ? firstItemRef : index === movieList.length - 1 ? lastItemRef : itemRef}>
-            <button type="button" onClick={() => navigate(`/movies/${movieItem.id}`, { state: { genre, ...movieItem } })}>
+            <button type="button" onClick={() => navigate(`/movies/${movieItem.id}`, { state: { genre, ...movieItem } })} data-testid="carousel-item-button">
               <PosterImage posterPath={movieItem.poster_path} />
             </button>
           </li>
@@ -67,11 +66,6 @@ const Carousel = ({ movieList, genre }) => {
       )}
     </section>
   );
-};
-
-Carousel.propTypes = {
-  movieList: PropTypes.arrayOf.isRequired,
-  genre: PropTypes.string.isRequired,
 };
 
 export default Carousel;

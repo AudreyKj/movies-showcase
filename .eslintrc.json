@@ -19,6 +19,9 @@
     ],
     "rules": {
         "react/function-component-definition": "off",
-        "no-nested-ternary": "off"
+        "no-nested-ternary": "off",
+        "no-undef": "off",
+        "react/prop-types": "off",
+        "no-unused-expressions": "off"
     }
 }
