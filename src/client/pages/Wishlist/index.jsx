@@ -24,7 +24,7 @@ const Wishlist = () => {
   }, []);
 
   return (
-    <section className="wishlist">
+    <section className="wishlist" data-testid="wishlist-section">
       {isWishlistEmpty ? (
         <EmptyWishlistText />
       ) : (

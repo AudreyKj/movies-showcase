@@ -19,6 +19,7 @@
 
 .header__heading {
   @include text.default-font-m;
+
   cursor: pointer;
 
   a, 

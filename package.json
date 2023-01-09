@@ -6,12 +6,11 @@
   "author": "Audrey Kadjar",
   "scripts": {
     "lint": "eslint ./src --fix",
-    "lint-style": "&& npx stylelint '**/*.scss' --fix",
+    "lint-style": "npx stylelint '**/*.scss' --fix",
     "dev": "NODE_ENV=development nodemon src/api/index.js && nodemon src/serverRendering/index.js",
     "build": "webpack --mode=production",
     "test-unit": "jest --testPathPattern=src/client/testing/unit-testing --watchAll",
-    "test-cy": "jest --testPathPattern=src/client/testing/unit-testing --watchAll"
-
+    "test-cy": "cypress run"
   },
   "jest": {
     "testEnvironment": "jsdom",
@@ -25,6 +24,7 @@
   },
   "devDependencies": {
     "concurrently": "^7.6.0",
+    "cypress": "^12.3.0",
     "eslint": "^8.31.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-plugin-import": "^2.26.0",

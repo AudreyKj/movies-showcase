@@ -45,7 +45,7 @@ const Carousel = ({ movieList, genre }) => {
   };
 
   return (
-    <section className="carousel" data-testid="carousel-element">
+    <section className="carousel" data-testid={`carousel-element-${genre}`}>
       {isPrevButtonVisible && (
       <button type="button" className="carousel__arrow-button prev-item-cta" onClick={handlePrevClick}>
         <img src={arrowLeftIcon} alt="arrow left" />

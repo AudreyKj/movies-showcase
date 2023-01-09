@@ -13,7 +13,7 @@ describe('carousel displays a scrollable list of interactive images', () => {
   it('displays a scrollable list of items', async () => {
     const { getByTestId } = render(<Carousel movieList={mockImagesList} genre="comedy" />, { wrapper: MemoryRouter });
 
-    const carouselElement = getByTestId('carousel-element');
+    const carouselElement = getByTestId('carousel-element-comedy');
     const list = getByTestId('carousel-list');
 
     fireEvent.scroll(carouselElement, { target: { scrollX: 100 } });

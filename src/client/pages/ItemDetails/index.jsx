@@ -14,7 +14,7 @@ const ItemDetails = () => {
   const genreCustomStyling = `item-details_${genre}`;
 
   return (
-    <section className={`item-details ${genreCustomStyling}`}>
+    <section className={`item-details ${genreCustomStyling}`} data-testid="item-details-page">
       <section className="item-details__img-description-wrapper">
         <div className="item-details__img-description-container">
           <div className="item-details__image-area">
