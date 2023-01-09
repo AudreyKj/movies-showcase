@@ -1,12 +1,10 @@
 const React = require('react');
 const ReactDOMServer = require('react-dom/server');
-const { StaticRouter } = require("react-router-dom/server");
-const App = require('../client/App.jsx').default;
+const { StaticRouter } = require('react-router-dom/server');
+const App = require('../client/App').default;
 
-
-const serverRenderer = () => {
-    return (req, res, next) => {
-        res.status(200).send(`
+const serverRenderer = () => (req, res, next) => {
+  res.status(200).send(`
         <!DOCTYPE html>
         <html lang="en">
         <head>
@@ -26,7 +24,6 @@ const serverRenderer = () => {
             <script src="/client.js"></script>
         </body>
         </html>`);
-    };
-}
+};
 
 export default serverRenderer;

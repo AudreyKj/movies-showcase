@@ -1,10 +1,52 @@
-import React from "react";
-import "./styles.scss";
+import React, { useEffect, useState } from 'react';
+import EmptyWishlistText from './EmptyWishlistText';
+import PosterImage from '../../components/PosterImage';
+import './styles.scss';
 
-export const Wishlist = () => {
-    return(
-        <section className="wishlist-container">
-        <h1> MY WISHLIST</h1>
-        </section>
-    )
-}
+const Wishlist = () => {
+  const [wishlistItemList, setWishlistItemList] = useState([]);
+  const isWishlistEmpty = wishlistItemList && wishlistItemList.length === 0;
+
+  const getWishlistItems = () => {
+    const itemsArr = Object.entries(localStorage);
+    const formattedList = [];
+
+    itemsArr.forEach((elem) => {
+      if (elem[0] !== 'sync_storageMap') {
+        formattedList.push({ imgUrl: elem[1] });
+      }
+    });
+    setWishlistItemList(formattedList);
+  };
+
+  useEffect(() => {
+    getWishlistItems();
+  }, []);
+
+  return (
+    <section className="wishlist">
+      {isWishlistEmpty ? (
+        <EmptyWishlistText />
+      ) : (
+        <>
+          <span className="wishlist__count">
+            Wishlist:
+            {' '}
+            {wishlistItemList.length}
+            {' '}
+            item(s)
+          </span>
+          <ul className="wishlist__list">
+            {wishlistItemList.map(({ imgUrl }) => (
+              <li key={imgUrl} className="wishlist__item">
+                <PosterImage posterPath={imgUrl} />
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
+    </section>
+  );
+};
+
+export default Wishlist;

@@ -1,16 +1,15 @@
-import React from "react";
-import {Header} from "./components/Header/index.jsx";
-import {Home} from "./pages/Home/index.jsx";
-import './styles.scss'
+import React from 'react';
+import { Outlet } from 'react-router-dom';
+import Header from './components/Header';
+import './main.scss';
 
-
-const App = () => {
-    return (
-        <>
-        <Header />
-        <Home />
-        </>
-    )
-}
+const App = () => (
+  <>
+    <Header />
+    <section className="page-content">
+      <Outlet />
+    </section>
+  </>
+);
 
 export default App;

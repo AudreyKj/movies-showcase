@@ -1,0 +1,38 @@
+@use "../../assets/sass/fonts" as text;
+@use "../../assets/sass/colors";
+@use "../../assets/sass/layout";
+
+.poster-img,
+.poster-img_placeholder {
+  height: 100%;
+  width: 100%;
+
+  @include layout.rounded;
+}
+
+.poster-img {
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+
+.poster-img_placeholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-extra-light-grey);
+}
+
+.poster-img_invisible {
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+
+.poster-img_error {
+  padding: 0 5px;
+  color: var(--color-grey);
+
+  @include text.default-font-xs;
+
+  text-align: center;
+}

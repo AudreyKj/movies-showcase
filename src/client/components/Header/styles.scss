@@ -1,49 +1,73 @@
-@use '../../assets/styles/fonts' as text;
-@use '../../assets/styles/colors';
+@use "../../assets/sass/fonts" as text;
+@use "../../assets/sass/colors";
+@use "../../assets/sass/layout";
 
-header {
-    position: fixed;
-    z-index:1;
-    width: 100%;
-    padding: 5px 0;
-    display:flex;
-    justify-content: center;
-    align-items:center;
-    flex-direction:column;
-    border-bottom: 1px solid var(--color-light-grey);
-    background: var(--color-background-white);
-    //background:red;
-    color: var(--color-text-contrast);
+.header {
+  width: 100%;
+  height: 7%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: var(--color-extra-light-grey);
+  color: var(--color-text-contrast);
+
+  @include layout.rounded;
+
+  z-index: 1;
 }
 
-header h1 {
-    @include text.default-font-m;
+.header__heading {
+  @include text.default-font-m;
+
+  cursor: pointer;
 }
 
-header button {
-    background: transparent;
-    border:none;
-    @include text.default-font-s;
-    color:var(--color-light-grey);
-    position: absolute;
-    right: 8%;
-    display:flex;
-    justify-content: center;
-    align-items:center;
-
+.header__nav {
+  position: absolute;
+  right: 8%;
 }
 
-header img {
-    width: 20Px;
-    margin-right:5px;
+.header__nav-list {
+  list-style: none;
 }
 
-header a,
-header a:visited,
-header a:hover,
-header a:active {
-color: var(--color-text-contrast);
-text-transform: none;
-text-decoration: none;
+.header__wishlist-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  border: none;
+
+  @include text.default-font-s;
+
+  transition: opacity 0.4s;
+
+  &:hover {
+    @include layout.semi-opacity;
+  }
 }
 
+.header__wishlist-icon {
+  width: 20px;
+  margin-right: 5px;
+}
+
+.header__nav-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-text-contrast);
+  text-transform: none;
+  text-decoration: none;
+
+  &:visited,
+  &:hover,
+  &:active {
+    @include layout.semi-opacity;
+  }
+}
+
+.nav-link_active {
+  @include layout.semi-opacity;
+}

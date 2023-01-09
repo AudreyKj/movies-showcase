@@ -1,6 +1,6 @@
 const webpack = require('webpack');
-const path = require("path");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const dist = path.join(__dirname, 'dist');
 
@@ -10,26 +10,31 @@ module.exports = [
     mode: 'development',
     target: 'web',
     devtool: 'source-map',
-    entry: ['./src/client/index.js', 'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000&reload=true',],
+    entry: ['./src/client/index.js', 'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000&reload=true'],
     output: {
       path: dist,
-      filename: 'client.js'
+      filename: 'client.js',
     },
     module: {
       rules: [
         {
           test: /\.(js|jsx)$/,
           exclude: /node_modules/,
-          use: ['babel-loader']
+          use: {
+            loader: 'babel-loader',
+            options: {
+              presets: ["@babel/preset-env", "@babel/preset-react"],
+            },
+          },
         },
         {
           test: /\.css$/,
-          use: ['style-loader', 'css-loader']
+          use: ['style-loader', 'css-loader'],
         },
         {
           test: /\.s[ac]ss$/,
           exclude: /node_modules/,
-          use: ['style-loader', 'css-loader', 'sass-loader']
+          use: ['style-loader', 'css-loader', 'sass-loader'],
         },
         {
           test: /\.(png|jpe?g|svg)$/i,
@@ -38,7 +43,7 @@ module.exports = [
               loader: 'file-loader',
               options: {
                 name: '[path][name].[ext]',
-                publicPath: "/",
+                publicPath: '/',
               },
             },
           ],
@@ -48,28 +53,36 @@ module.exports = [
     plugins: [
       new webpack.HotModuleReplacementPlugin(),
     ],
+    resolve: {
+      extensions: ['.jsx', '.js'],
+    },
   }, {
     name: 'server',
     mode: 'development',
     target: 'node',
     devtool: 'source-map',
-    entry: './src/serverRendering/renderer',
+    entry: './src/server-rendering/renderer',
     output: {
       path: dist,
       filename: 'server.js',
-      libraryTarget: 'commonjs2'
+      libraryTarget: 'commonjs2',
     },
     module: {
       rules: [
         {
           test: /\.(js|jsx)$/,
           exclude: /node_modules/,
-          use: ['babel-loader']
+          use: {
+            loader: 'babel-loader',
+            options: {
+              presets: ["@babel/preset-env", "@babel/preset-react"],
+            },
+          },
         },
         {
           test: /\.s[ac]ss$/,
           exclude: /node_modules/,
-          use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
+          use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
         },
         {
           test: /\.(png|jpe?g|svg)$/i,
@@ -78,13 +91,16 @@ module.exports = [
               loader: 'file-loader',
               options: {
                 name: '[path][name].[ext]',
-                publicPath: "/",
+                publicPath: '/',
               },
             },
           ],
-        }
+        },
       ],
     },
     plugins: [new MiniCssExtractPlugin()],
-  }
+    resolve: {
+      extensions: ['.jsx', '.js'],
+    },
+  },
 ];
