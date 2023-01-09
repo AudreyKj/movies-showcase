@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 
-export const HomeLayout = ({ children }) => {
-    return (
-        <section className="home">{children}</section>
-    )
-}
+const HomeLayout = ({ children }) => (
+  <section className="home">{children}</section>
+);
+
+export default HomeLayout;

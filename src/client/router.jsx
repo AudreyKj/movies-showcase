@@ -3,15 +3,14 @@ import {
   createBrowserRouter,
   Navigate,
 } from 'react-router-dom';
-import { Home } from './pages/Home';
-import { ItemDetail } from './pages/ItemDetail';
-import { Wishlist } from './pages/Wishlist';
+import Home from './pages/Home';
+import ItemDetails from './pages/ItemDetails';
+import Wishlist from './pages/Wishlist';
 import App from './App';
 
-export const router = createBrowserRouter([
+const router = createBrowserRouter([
   {
     element: <App />,
-    errorElement: <Navigate to="/home" />,
     children: [
       {
         path: '/',
@@ -24,7 +23,7 @@ export const router = createBrowserRouter([
       },
       {
         path: 'movies/:movieId',
-        element: <ItemDetail />,
+        element: <ItemDetails />,
       },
       {
         path: 'mywishlist',
@@ -32,3 +31,5 @@ export const router = createBrowserRouter([
       },
     ],
   }]);
+
+export default router;

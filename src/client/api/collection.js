@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const getMoviesCollection = async () => {
+const getMoviesCollection = async () => {
   try {
     const { data } = await axios.get('http://localhost:8080/movies/collection');
     return data.error ? Promise.reject(data.error) : Promise.resolve(data);
@@ -8,3 +8,5 @@ export const getMoviesCollection = async () => {
     return Promise.reject(error);
   }
 };
+
+export default getMoviesCollection;

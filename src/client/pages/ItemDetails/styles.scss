@@ -61,13 +61,14 @@
   }
 }
 
-.container__info p {
-  line-height: 1.2;
+.item-details__description-text {
+    @include layout.line-height;
 }
 
 .additional-info-wrapper {
   width: 100%;
   margin-top: 20px;
+  padding: 10px 0;
   display: flex;
   justify-content: center;
 
@@ -76,4 +77,5 @@
 
 .additional-info-wrapper__list {
   list-style: circle;
+  @include layout.line-height;
 }

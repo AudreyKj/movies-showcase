@@ -10,7 +10,7 @@ module.exports = [
     mode: 'development',
     target: 'web',
     devtool: 'source-map',
-    entry: ['./src/client/index.js', 'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000&reload=true',],
+    entry: ['./src/client/index.js', 'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000&reload=true'],
     output: {
       path: dist,
       filename: 'client.js',

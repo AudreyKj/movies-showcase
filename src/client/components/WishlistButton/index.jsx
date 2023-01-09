@@ -1,28 +1,34 @@
-import React, {useEffect, useState} from "react";
-import "./styles.scss";
+import React, { useEffect, useState } from 'react';
+import './styles.scss';
 
-export const WishlistButton = ({genre, title, imgUrl}) => {
-    const [isDisabled, setIsDisabled] = useState(false);
-    const [text, setText] = useState("")
+const WishlistButton = ({ genre, title, imgUrl }) => {
+  const [isDisabled, setIsDisabled] = useState(false);
+  const [text, setText] = useState('');
 
-    const genreCustomStyling = `wishlist-cta_${genre}`;
+  const genreCustomStyling = `wishlist-cta_${genre}`;
 
-    useEffect(() => {
-        if(localStorage.getItem(title)) setIsDisabled(true);
-    }, [])
+  useEffect(() => {
+    if (localStorage.getItem(title)) setIsDisabled(true);
+  }, [title]);
 
-    useEffect(() => {
-        isDisabled ? setText(`Added to Wishlist!`) : setText(`Add to Wishlist`);
-    }, [isDisabled])
-
-    const addItemToWishlist = () => {
-        localStorage.setItem(title, imgUrl);
-        setIsDisabled(true);
+  useEffect(() => {
+    if (isDisabled) {
+      setText('Added to Wishlist!');
+    } else {
+      setText('Add to Wishlist');
     }
+  }, [isDisabled]);
 
-    return(
-       <button className={`${genreCustomStyling}`} onClick={addItemToWishlist} disabled={isDisabled}>
-           {text}
-       </button>
-    )
-}
+  const addItemToWishlist = () => {
+    localStorage.setItem(title, imgUrl);
+    setIsDisabled(true);
+  };
+
+  return (
+    <button type="button" className={`${genreCustomStyling}`} onClick={addItemToWishlist} disabled={isDisabled}>
+      {text}
+    </button>
+  );
+};
+
+export default WishlistButton;
