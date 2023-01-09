@@ -6,10 +6,12 @@
   "author": "Audrey Kadjar",
   "scripts": {
     "lint": "eslint ./src --fix",
-    "style-lint": "&& npx stylelint '**/*.scss' --fix",
+    "lint-style": "&& npx stylelint '**/*.scss' --fix",
     "dev": "NODE_ENV=development nodemon src/api/index.js && nodemon src/serverRendering/index.js",
     "build": "webpack --mode=production",
-    "unit-test": "jest --testPathPattern=src/client/unit-testing --watchAll"
+    "test-unit": "jest --testPathPattern=src/client/testing/unit-testing --watchAll",
+    "test-cy": "jest --testPathPattern=src/client/testing/unit-testing --watchAll"
+
   },
   "jest": {
     "testEnvironment": "jsdom",
