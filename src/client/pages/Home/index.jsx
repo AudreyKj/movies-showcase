@@ -1,8 +1,9 @@
-import React, { useState, useEffect} from "react";
-import axios from "axios";
-import Carousel from "../../components/Carousel/index.jsx";
-import { Loader } from "../../components/Loader/index.jsx";
-import "./styles.scss";
+import React, { useState, useEffect } from 'react';
+import Carousel from '../../components/Carousel/index';
+import { Loader } from '../../components/Loader/index';
+import { HomeLayout } from './HomeLayout';
+import { getMoviesCollection } from '../../api/collection';
+import './styles.scss';
 
 export const Home = () => {
     const [comedyMoviesList, setComedyMoviesList] = useState(null);
@@ -14,34 +15,17 @@ export const Home = () => {
     const isDataLoading = !isListDataReady(comedyMoviesList) || !isListDataReady(westernMoviesList) || !isListDataReady(musicMoviesList);
 
     useEffect(() => {
-        axios.get("http://localhost:8080/movies/genre/comedy").then(({ data }) => {
-            console.log(data)
-            setComedyMoviesList(data)
+        getMoviesCollection().then(collection => {
+            console.log("collection", collection)
+            setComedyMoviesList(collection.comedy);
+            setWesternMoviesList(collection.western);
+            setMusicMoviesList(collection.music);
         }).catch((error) => {
-            console.log("error", error)
+            console.log("error", error);
             setError(true)
         })
     }, [])
 
-    useEffect(() => {
-        axios.get("http://localhost:8080/movies/genre/western").then(({ data }) => {
-            console.log(data)
-            setWesternMoviesList(data)
-        }).catch(() => setError(true))
-    }, [])
-
-    useEffect(() => {
-        axios.get("http://localhost:8080/movies/genre/music").then(({ data }) => {
-            console.log(data)
-            setMusicMoviesList(data)
-        }).catch(() => setError(true))
-    }, [])
-
-    const HomeLayout = ({ children }) => {
-        return (
-            <section className="home">{children}</section>
-        )
-    }
 
     if (isDataLoading && !error) {
         return (

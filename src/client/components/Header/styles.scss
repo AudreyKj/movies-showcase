@@ -44,7 +44,7 @@
   transition: opacity 0.4s;
 
   &:hover {
-    opacity: 0.6;
+    @include layout.semi-opacity;
   }
 }
 
@@ -64,10 +64,10 @@
   &:visited,
   &:hover,
   &:active {
-    opacity: 0.6;
+    @include layout.semi-opacity;
   }
 }
 
 .nav-link_active {
-  opacity: 0.6;
+  @include layout.semi-opacity;
 }

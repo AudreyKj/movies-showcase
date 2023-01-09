@@ -1,5 +1,6 @@
 @use "../../assets/sass/fonts" as text;
 @use "../../assets/sass/colors";
+@use "../../assets/sass/layout";
 
 .wishlist {
   width: 100%;
@@ -40,7 +41,7 @@
   @include text.default-font-s;
 
   &:hover {
-    opacity: 0.6;
+    @include layout.semi-opacity;
   }
 
   a,

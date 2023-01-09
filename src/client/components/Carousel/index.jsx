@@ -1,6 +1,6 @@
 import React from "react";
 import {useNavigate} from "react-router-dom";
-import {PosterImage} from "../../components/PosterImage/index.jsx";
+import {PosterImage} from "../../components/PosterImage";
 import "./styles.scss";
 
 const Carousel = ({ movieList, genre }) => {

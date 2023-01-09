@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { PosterImage } from "../../components/PosterImage/index.jsx";
+import { PosterImage } from "../../components/PosterImage";
 import "./styles.scss";
 
 export const Wishlist = () => {

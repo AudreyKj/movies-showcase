@@ -1,13 +1,10 @@
 const React = require('react');
 const ReactDOMServer = require('react-dom/server');
-const { StaticRouter } = require("react-router-dom/server");
-const App = require('../client/App.jsx').default;
-const {Home} = require('../client/pages/Home/index.jsx');
+const { StaticRouter } = require('react-router-dom/server');
+const App = require('../client/App').default;
 
-const serverRenderer = () => {
-    return (req, res, next) => {
-        console.log(req.url)
-        res.status(200).send(`
+const serverRenderer = () => (req, res, next) => {
+  res.status(200).send(`
         <!DOCTYPE html>
         <html lang="en">
         <head>
@@ -20,14 +17,13 @@ const serverRenderer = () => {
             <title>Movies Showcase</title>
         </head>
         <body>
-            <main id="root">${ReactDOMServer.renderToString(<StaticRouter location={req.url}><App /><Home /></StaticRouter>)}</main>
+            <main id="root">${ReactDOMServer.renderToString(<StaticRouter location={req.url}><App /></StaticRouter>)}</main>
             <noscript>
             You need to enable JavaScript to run this app.
             </noscript>
             <script src="/client.js"></script>
         </body>
         </html>`);
-    };
-}
+};
 
 export default serverRenderer;

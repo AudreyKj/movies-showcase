@@ -14,12 +14,12 @@
   cursor: pointer;
 
   &:hover {
-    opacity: 0.6;
+    @include layout.semi-opacity;
   }
 
   &:disabled {
     cursor: not-allowed;
-    opacity: 0.6;
+    @include layout.semi-opacity;
   }
 }
 

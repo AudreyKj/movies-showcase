@@ -1,7 +1,7 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-import { WishlistButton } from "../../components/WishlistButton/index.jsx";
-import { PosterImage } from "../../components/PosterImage/index.jsx";
+import { WishlistButton } from "../../components/WishlistButton";
+import { PosterImage } from "../../components/PosterImage";
 import "./styles.scss";
 
 export const ItemDetail = () => {
