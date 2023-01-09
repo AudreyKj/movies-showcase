@@ -22,8 +22,6 @@
         "no-nested-ternary": "off",
         "no-undef": "off",
         "react/prop-types": "off",
-        // "no-loop-func": "off",
         "no-unused-expressions": "off"
-        // "no-plusplus": "off"
     }
 }

@@ -1,5 +1,4 @@
 import React, { useRef } from 'react';
-//import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 import PosterImage from '../PosterImage';
 import useIsInViewport from './useInViewport';
@@ -68,10 +67,5 @@ const Carousel = ({ movieList, genre }) => {
     </section>
   );
 };
-
-// Carousel.propTypes = {
-//   movieList: PropTypes.arrayOf.isRequired,
-//   genre: PropTypes.string.isRequired,
-// };
 
 export default Carousel;
