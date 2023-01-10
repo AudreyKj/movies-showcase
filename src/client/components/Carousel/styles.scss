@@ -77,7 +77,7 @@
   transition: all 0.4s;
 
   &:hover {
-    opacity: 0.4;
+    @include base.see-through-opacity;
   }
 
   @include size.respond-to("extra-large") {

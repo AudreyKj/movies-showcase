@@ -18,7 +18,7 @@
 
   z-index: 1;
 
-  @include size.respond-to("medium") {
+  @include size.respond-to('medium') {
     height: 7%;
   }
 }

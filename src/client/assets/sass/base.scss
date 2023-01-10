@@ -18,6 +18,10 @@
   opacity:0.6;
 }
 
+@mixin see-through-opacity {
+  opacity:0.4;
+}
+
 /// image sizes
 @mixin image-poster-small {
   width: 92px;
