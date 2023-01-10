@@ -12,7 +12,11 @@ $breakpoints: (
   $raw-query: map-get($breakpoints, $breakpoint);
 
   @if $raw-query {
-    $query: $raw-query;
+    $query: if(
+      type-of($raw-query) == 'string',
+      unquote($raw-query),
+      inspect($raw-query)
+    );
 
     @media #{$query} {
       @content;
