@@ -1,6 +1,7 @@
 /* eslint-disable import/no-dynamic-require */
 /* eslint-disable global-require */
 const express = require('express');
+const path = require('path');
 
 const app = express();
 
