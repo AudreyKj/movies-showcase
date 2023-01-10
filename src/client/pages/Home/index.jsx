@@ -12,7 +12,9 @@ const Home = () => {
   const [error, setError] = useState(false);
 
   const isListDataReady = (movieList) => Array.isArray(movieList) && movieList.length > 0;
-  const isDataLoading = !isListDataReady(comedyMoviesList) || !isListDataReady(westernMoviesList) || !isListDataReady(musicMoviesList);
+  const isDataLoading = !isListDataReady(comedyMoviesList)
+  || !isListDataReady(westernMoviesList)
+  || !isListDataReady(musicMoviesList);
 
   useEffect(() => {
     getMoviesCollection().then((collection) => {

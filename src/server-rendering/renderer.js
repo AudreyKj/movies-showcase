@@ -1,7 +1,7 @@
 const React = require('react');
 const ReactDOMServer = require('react-dom/server');
 const { StaticRouter } = require('react-router-dom/server');
-const App = require('../client/App').default;
+const App = require('../client/App.jsx').default;
 
 const serverRenderer = () => (req, res, next) => {
   res.status(200).send(`

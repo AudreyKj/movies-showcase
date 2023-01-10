@@ -3,7 +3,7 @@
 
 .carousel {
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
   position: relative;
 }
 
@@ -26,7 +26,7 @@
   }
 }
 
-.next-item-cta {
+.carousel__next-item {
   position: absolute;
   top: 0;
   right: -15px;
@@ -34,7 +34,7 @@
   margin: auto 0;
 }
 
-.prev-item-cta {
+.carousel__prev-item {
   position: absolute;
   top: 0;
   left: -15px;
@@ -70,7 +70,7 @@
 }
 
 .carousel__item {
-  @include base.image-poster-small;
+  @include base.image-poster-extra-small;
 
   margin: 0 10px;
   flex-shrink: 0;
@@ -81,7 +81,7 @@
   }
 
   @include size.respond-to("extra-large") {
-    @include base.image-poster-large;
+    @include base.image-poster-medium;
   }
 }
 

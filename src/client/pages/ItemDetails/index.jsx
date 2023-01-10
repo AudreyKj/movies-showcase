@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import WishlistButton from '../../components/WishlistButton';
@@ -30,9 +31,9 @@ const ItemDetails = () => {
           </div>
         </div>
       </section>
-      <section className="additional-info-wrapper">
-        <ul className="additional-info-wrapper__list">
-          <li>
+      <section className="item-details__additional-info-wrapper">
+        <ul className="item-details__additional-info-list">
+          <li data-testid="category-genre">
             Genre:
             {' '}
             <b>{capitalizeFirstLetter(genre)}</b>

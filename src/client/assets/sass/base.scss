@@ -22,23 +22,40 @@
   opacity:0.4;
 }
 
-/// image sizes
-@mixin image-poster-small {
+/// poster image sizes
+@mixin image-poster-extra-small {
   width: 92px;
   height:140px;
 };
 
-@mixin image-poster-medium {
+@mixin image-poster-small {
   width: 154px;
   height:225px;
 };
 
-@mixin image-poster-large {
+@mixin image-poster-medium {
   width: 185px;
   height:280px;
+};
+
+@mixin image-poster-large {
+  width: 250px;
+  height: 375px;
 };
 
 @mixin image-poster-extra-large {
   width: 342px;
   height:513px;
 };
+
+/// wishlist item sizes
+@mixin wishlist-item-default {
+  width:150px;
+  height:250px;
+}
+
+@mixin wishlist-item-large {
+  width:300px;
+  height:400px;
+}
+

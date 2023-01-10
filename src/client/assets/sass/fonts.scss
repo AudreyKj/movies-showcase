@@ -3,6 +3,7 @@ $western-genre-font-style: (verdana, arial, helvetica, sans-serif);
 $music-genre-font-style: ("Lucida Console", "Courier New", monospace);
 $comedy-genre-font-style: ("Times New Roman", times, serif);
 
+/// default font sizes
 @mixin default-font-xs {
   font-family: $default-font-style;
   font-size: 0.9rem;
@@ -23,6 +24,7 @@ $comedy-genre-font-style: ("Times New Roman", times, serif);
   font-size: 1.5rem;
 }
 
+/// category font styles
 @mixin music-font-style {
   font-family: $music-genre-font-style;
 }

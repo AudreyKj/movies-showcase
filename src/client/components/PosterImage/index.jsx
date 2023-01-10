@@ -22,7 +22,7 @@ const PosterImage = ({ posterPath }) => {
           <img
             onLoad={handleImageLoaded}
             onError={handleImageLoadError}
-            className={loaded ? 'poster-img' : 'poster-img_invisible'}
+            className={loaded ? 'poster-img' : 'poster-img_hidden'}
             src={`https://image.tmdb.org/t/p/w500${posterPath}`}
             alt="movie poster"
           />
