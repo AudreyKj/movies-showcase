@@ -25,7 +25,7 @@ if (process.env.NODE_ENV !== 'production') {
   const SERVER_RENDERER_PATH = path.join(__dirname, '../../build/server.js');
   const serverRenderer = require(SERVER_RENDERER_PATH);
   const stats = require(CLIENT_STATS_PATH);
-  app.use(express.static(CLIENT_ASSETS_DIR));
+  app.use('/', express.static(CLIENT_ASSETS_DIR));
   app.use(serverRenderer(stats));
 }
 
