@@ -46,7 +46,7 @@ const Carousel = ({ movieList, genre }) => {
   return (
     <section className="carousel" data-testid={`carousel-element-${genre}`}>
       {isPrevButtonVisible && (
-      <button data-testid="carousel-prev-button" type="button" className="carousel__arrow-button prev-item-cta" onClick={handlePrevClick}>
+      <button data-testid="carousel-prev-button" type="button" className="carousel__arrow-button carousel__prev-item" onClick={handlePrevClick}>
         <img src={arrowLeftIcon} alt="arrow left" />
       </button>
       )}
@@ -60,7 +60,7 @@ const Carousel = ({ movieList, genre }) => {
         ))}
       </ul>
       {isNextButtonVisible && (
-      <button data-testid="carousel-next-button" type="button" className="carousel__arrow-button next-item-cta" onClick={handleNextClick}>
+      <button data-testid="carousel-next-button" type="button" className="carousel__arrow-button carousel__next-item" onClick={handleNextClick}>
         <img src={arrowRightIcon} alt="arrow right" />
       </button>
       )}

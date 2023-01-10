@@ -26,7 +26,7 @@ This web app is responsive across devices.
 - end-to-end testing with Cypress
 
 ## Security 
-The API TheMovieDatabase requires authentification with a private API key. To prevent the API key from being embedded in the final Webpack bundle (and being visible to anyone who inspects the code), a separate Express server calls the TheMovieDatabase API and serves the app.
+The API [TheMovieDatabase](https://developers.themoviedb.org/3/getting-started/authentication) requires authentification with a private API key. To prevent the API key from being embedded in the Webpack bundle (and being visible to anyone who inspects the code), a separate Express server calls the TheMovieDatabase API and serves the app.
 
 ## Performance & User Experience
 To ensure performance, the homepage indicates the loading of API's response and 
@@ -84,19 +84,19 @@ npm run test-e2e
 ```
 ## Screenshots
 
-Each carousel is a different category: Western / Music / Comedy movies. 
+Each carousel is a different category: Western / Music / Comedy movies:
 ![screenshot](screenshots/carousel-1.png)
 
-The next/prev buttons appear programatically based on scroll.
+The next/prev buttons appear programatically based on scroll:
 ![screenshot 2](screenshots/carousel-2.png)
 
-Details page for item from Western category:
+Details page for item from Western category (brown button & `Verdana` font):
 ![screenshot](screenshots/western.png)
 
-Details page for item from Music category:
+Details page for item from Music category (blue button & `Courier New` font):
 ![screenshot 2](screenshots/music.png)
 
-Details page for item from Comedy category:
+Details page for item from Comedy category (pink button & `Times New Roman` font):
 ![screenshot 2](screenshots/comedy.png)
 
 Empty wishlist:

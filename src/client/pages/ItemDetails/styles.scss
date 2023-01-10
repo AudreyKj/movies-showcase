@@ -99,7 +99,7 @@
     @include base.line-height;
 }
 
-.additional-info-wrapper {
+.item-details__additional-info-wrapper {
   width: 100%;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -110,7 +110,7 @@
   @include base.rounded-grey-border;
 }
 
-.additional-info-wrapper__list {
+.item-details__additional-info-list {
   list-style: circle;
   @include base.line-height;
 }
