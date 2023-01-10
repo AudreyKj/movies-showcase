@@ -1,8 +1,8 @@
 # Movies Showcase web app
 
-React app with Server-Side Rendering using the open API [TheMovieDatabase](https://developers.themoviedb.org/3/getting-started/introduction).
+React app with Server-Side Rendering using the API [TheMovieDatabase](https://developers.themoviedb.org/3/getting-started/introduction).
 
-The project is bundled with Webpack; it supports hot reloading in development mode and is optimizated for production. The bundling also takes care of cross-browser support, using [Babel](https://babeljs.io/) for modern ECMAScript and [Autoprefixer](https://github.com/postcss/autoprefixer) for browser compliant styling.
+The project is bundled with [Webpack](https://webpack.js.org/): it supports hot reloading in development mode and is optimizated for production. The bundling also takes care of cross-browser support, using [Babel](https://babeljs.io/) for modern ECMAScript and [Autoprefixer](https://github.com/postcss/autoprefixer) for browser compliant styling.
 
 The project includes both unit and end-to-end testing. The unit tests validate each component's functionality in isolation while the end-to-end test ensures the application flow behaves as expected (see Testing section below). 
 
@@ -53,6 +53,8 @@ Run these commands in the project directory:
 ```bash
 npm install
 ```
+
+- Create an .env file and add your API key from TheMovieDatabase (see `.env-sample`)
 
 - Run the app locally in development mode:
 
