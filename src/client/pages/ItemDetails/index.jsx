@@ -32,7 +32,7 @@ const ItemDetails = () => {
       </section>
       <section className="additional-info-wrapper">
         <ul className="additional-info-wrapper__list">
-          <li>
+          <li data-testid="category-genre">
             Genre:
             {' '}
             <b>{capitalizeFirstLetter(genre)}</b>

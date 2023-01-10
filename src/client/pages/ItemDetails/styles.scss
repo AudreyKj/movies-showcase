@@ -65,7 +65,7 @@
     @include base.image-poster-large;
   }
 
-  @include size.respond-to("extra-large") {
+  @include size.respond-to('extra-large') {
     @include base.image-poster-extra-large;
   }
 

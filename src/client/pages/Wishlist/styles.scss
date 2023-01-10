@@ -39,10 +39,10 @@
   }
 
   img {
-    @include base.image-poster-small;
+    @include base.image-poster-extra-small;
 
     @include size.respond-to("extra-large") {
-      @include base.image-poster-large;
+      @include base.image-poster-medium;
     }
   }
 }

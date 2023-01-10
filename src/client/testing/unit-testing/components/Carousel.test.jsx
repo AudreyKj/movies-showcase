@@ -16,10 +16,16 @@ describe('carousel displays a scrollable list of interactive images', () => {
     const carouselElement = getByTestId('carousel-element-comedy');
     const list = getByTestId('carousel-list');
 
-    fireEvent.scroll(carouselElement, { target: { scrollX: 100 } });
+    const prevButton = getByTestId('carousel-prev-button');
+    const nextButton = getByTestId('carousel-prev-button');
+
     const { getAllByRole } = within(list);
     const items = getAllByRole('listitem');
     expect(items.length).toBe(10);
+
+    fireEvent.scroll(carouselElement, { target: { scrollX: 100 } });
+    expect(prevButton).toBeInTheDocument();
+    expect(nextButton).toBeInTheDocument();
   });
 
   it('on click, each item navigates to its detail page', async () => {

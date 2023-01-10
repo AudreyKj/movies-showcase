@@ -70,7 +70,7 @@
 }
 
 .carousel__item {
-  @include base.image-poster-small;
+  @include base.image-poster-extra-small;
 
   margin: 0 10px;
   flex-shrink: 0;
@@ -81,7 +81,7 @@
   }
 
   @include size.respond-to("extra-large") {
-    @include base.image-poster-large;
+    @include base.image-poster-medium;
   }
 }
 
