@@ -1,7 +1,7 @@
 $default-font-style: ("Futura-Medium", "Century Gothic","Gill Sans", helvetica, arial, sans-serif);
-$comedy-genre-font-style: ("Times New Roman", times, serif);
-$music-genre-font-style: ("Lucida Console", "Courier New", monospace);
 $western-genre-font-style: (verdana, arial, helvetica, sans-serif);
+$music-genre-font-style: ("Lucida Console", "Courier New", monospace);
+$comedy-genre-font-style: ("Times New Roman", times, serif);
 
 @mixin default-font-xs {
   font-family: $default-font-style;
@@ -23,17 +23,16 @@ $western-genre-font-style: (verdana, arial, helvetica, sans-serif);
   font-size: 1.5rem;
 }
 
-@mixin comedy-genre-font-s {
-  font-family: $comedy-genre-font-style;
-  font-size: 1rem;
-}
-
-@mixin western-genre-font-s {
-  font-family: $western-genre-font-style;
-  font-size: 1rem;
-}
-
-@mixin music-genre-font-s {
+@mixin music-font-style {
   font-family: $music-genre-font-style;
-  font-size: 1rem;
 }
+
+@mixin western-font-style {
+  font-family: $western-genre-font-style;
+}
+
+@mixin comedy-font-style {
+  font-family: $comedy-genre-font-style;
+}
+
+

@@ -1,6 +1,9 @@
+@use "../../assets/sass/layout" as size;
+@use "../../assets/sass/base";
+
 .carousel {
   width: 100%;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   position: relative;
 }
 
@@ -16,6 +19,11 @@
   background:var(--color-background-white);
   cursor:pointer;
   z-index:1;
+
+  @include size.respond-to("extra-large") {
+    height:45Px;
+    width:45Px;
+  }
 }
 
 .next-item-cta {
@@ -62,13 +70,19 @@
 }
 
 .carousel__item {
+  @include base.image-poster-small;
+
   margin: 0 10px;
-  transition: all 0.4s;
-  width: 100px;
-  height: 140px;
   flex-shrink: 0;
+  transition: all 0.4s;
 
   &:hover {
-    opacity: 0.4;
+    @include base.see-through-opacity;
+  }
+
+  @include size.respond-to("extra-large") {
+    @include base.image-poster-large;
   }
 }
+
+

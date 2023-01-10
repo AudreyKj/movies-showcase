@@ -13,7 +13,7 @@ const Wishlist = () => {
 
     itemsArr.forEach((elem) => {
       if (elem[0] !== 'sync_storageMap') {
-        formattedList.push({ imgUrl: elem[1] });
+        formattedList.push({ title: elem[0], imgUrl: elem[1] });
       }
     });
     setWishlistItemList(formattedList);
@@ -37,9 +37,10 @@ const Wishlist = () => {
             item(s)
           </span>
           <ul className="wishlist__list">
-            {wishlistItemList.map(({ imgUrl }) => (
+            {wishlistItemList.map(({ title, imgUrl }) => (
               <li key={imgUrl} className="wishlist__item">
                 <PosterImage posterPath={imgUrl} />
+                <h2 className="wishlist__item-title">{title}</h2>
               </li>
             ))}
           </ul>

@@ -26,7 +26,11 @@ app.get('/movies/collection', async (req, res) => {
     const westernCategoryList = await axios.get(`${baseUrl}${process.env.MOVIESDB_API_KEY}&with_genres=${westernGenreId}&${pg13Filter}`);
     const westernRes = westernCategoryList.data.results;
 
-    const collectionRes = { comedy: [...comedyRes], music: [...musicRes], western: [...westernRes] };
+    const collectionRes = {
+      comedy: [...comedyRes],
+      music: [...musicRes],
+      western: [...westernRes],
+    };
 
     return res.json(collectionRes);
   } catch (error) {

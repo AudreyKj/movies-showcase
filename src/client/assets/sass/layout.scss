@@ -1,16 +1,28 @@
-@mixin rounded {
-  border-radius: 6px;
-}
+$breakpoints: (
+'extra-small': (min-width: 320px),
+'small': (min-width:481px),
+'small-vertical': (max-height: 600px),
+'medium': (min-width: 800px),
+'large': (min-width: 1000px),
+'extra-large': (min-width: 1920px),
+);
 
-@mixin line-height {
-  line-height: 1.2;
-}
+/// Responsive breakpoint manager
+@mixin respond-to($breakpoint) {
+  $raw-query: map-get($breakpoints, $breakpoint);
 
-@mixin semi-opacity {
-  opacity:0.6;
-}
+  @if $raw-query {
+    $query: if(
+      type-of($raw-query) == 'string',
+      unquote($raw-query),
+      inspect($raw-query)
+    );
 
-@mixin rounded-grey-border {
-  border: 1px solid var(--color-grey);
-  @include rounded;
+    @media #{$query} {
+      @content;
+    }
+  } @else {
+    @error 'No value found for `#{$breakpoint}`. '
+         + 'Please make sure it is defined in `$breakpoints` map.';
+  }
 }

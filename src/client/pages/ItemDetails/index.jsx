@@ -13,6 +13,8 @@ const ItemDetails = () => {
 
   const genreCustomStyling = `item-details_${genre}`;
 
+  const capitalizeFirstLetter = (word) => word.charAt(0).toUpperCase() + word.slice(1);
+
   return (
     <section className={`item-details ${genreCustomStyling}`} data-testid="item-details-page">
       <section className="item-details__img-description-wrapper">
@@ -33,7 +35,7 @@ const ItemDetails = () => {
           <li>
             Genre:
             {' '}
-            {genre}
+            <b>{capitalizeFirstLetter(genre)}</b>
           </li>
           <li>
             Original title:
