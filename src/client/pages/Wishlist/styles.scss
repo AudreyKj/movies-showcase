@@ -24,8 +24,7 @@
 }
 
 .wishlist__item {
-  width:150px;
-  height:200px;
+  @include base.wishlist-item-default;
   margin: 10px;
   display: flex;
   justify-content: center;
@@ -35,8 +34,7 @@
   @include base.rounded-grey-border;
 
   @include size.respond-to("extra-large") {
-    width:300px;
-    height:350px;
+    @include base.wishlist-item-large;
   }
 
   img {
@@ -52,6 +50,7 @@
   margin-top:10px;
   padding: 0 5px;
   @include text.default-font-xs;
+  @include base.line-height;
 
   @include size.respond-to("extra-large") {
     @include text.default-font-s;
