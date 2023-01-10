@@ -9,7 +9,8 @@
     "lint-style": "npx stylelint '**/*.scss' --fix",
     "dev-api": "nodemon src/api/index.js",
     "dev-app": "set NODE_ENV=development&& nodemon src/server-rendering/index.js",
-    "start": "concurrently 'npm run dev-api' 'npm run dev-app'",
+    "dev": "concurrently 'npm run dev-api' 'npm run dev-app'",
+    "start": "concurrently 'npm run dev-api' 'nodemon src/server-rendering/index.js'",
     "build": "webpack --mode=production --config webpack-config/webpack.prod.js",
     "test-unit": "jest --testPathPattern=src/client/testing/unit-testing --watchAll",
     "test-e2e": "cypress run"
