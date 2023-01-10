@@ -22,6 +22,9 @@
         "no-nested-ternary": "off",
         "no-undef": "off",
         "react/prop-types": "off",
-        "no-unused-expressions": "off"
+        "no-unused-expressions": "off",
+        "react/jsx-filename-extension": "off",
+        "import/extensions": "off",
+        "no-unused-vars": "off"
     }
 }

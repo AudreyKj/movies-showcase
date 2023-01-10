@@ -25,6 +25,7 @@
 
 .wishlist__item {
   @include base.wishlist-item-default;
+
   margin: 10px;
   display: flex;
   justify-content: center;

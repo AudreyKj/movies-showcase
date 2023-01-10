@@ -21,7 +21,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin: 0;
-  padding: 20px 20px 0;
+  padding: 20px;
   background: var(--color-background-white);
   color: var(--color-text-contrast);
   overflow-x: hidden;
@@ -35,12 +35,6 @@ body {
   @include size.respond-to("extra-large") {
     @include text.default-font-m;
   }
-
-
-
-
-
-
 }
 
 .page-content {

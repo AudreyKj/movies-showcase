@@ -1,16 +1,16 @@
-const webpack = require('webpack');
-const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const path = require('path');
 
-const dist = path.join(__dirname, 'dist');
+const dist = path.join(__dirname, '../dist');
 
 module.exports = [
   {
     name: 'client',
-    mode: 'development',
+    mode: 'production',
     target: 'web',
     devtool: 'source-map',
-    entry: ['./src/client/index.js', 'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000&reload=true'],
+    entry: './src/client/index.js',
     output: {
       path: dist,
       filename: 'client.js',
@@ -23,7 +23,7 @@ module.exports = [
           use: {
             loader: 'babel-loader',
             options: {
-              presets: ["@babel/preset-env", "@babel/preset-react"],
+              presets: ['@babel/preset-env', '@babel/preset-react'],
             },
           },
         },
@@ -32,57 +32,9 @@ module.exports = [
           use: ['style-loader', 'css-loader'],
         },
         {
-          test: /\.s[ac]ss$/,
+          test: /\.(css|s[ac]ss)$/,
           exclude: /node_modules/,
-          use: ['style-loader', 'css-loader', 'sass-loader'],
-        },
-        {
-          test: /\.(png|jpe?g|svg)$/i,
-          use: [
-            {
-              loader: 'file-loader',
-              options: {
-                name: '[path][name].[ext]',
-                publicPath: '/',
-              },
-            },
-          ],
-        },
-      ],
-    },
-    plugins: [
-      new webpack.HotModuleReplacementPlugin(),
-    ],
-    resolve: {
-      extensions: ['.jsx', '.js'],
-    },
-  }, {
-    name: 'server',
-    mode: 'development',
-    target: 'node',
-    devtool: 'source-map',
-    entry: './src/server-rendering/renderer',
-    output: {
-      path: dist,
-      filename: 'server.js',
-      libraryTarget: 'commonjs2',
-    },
-    module: {
-      rules: [
-        {
-          test: /\.(js|jsx)$/,
-          exclude: /node_modules/,
-          use: {
-            loader: 'babel-loader',
-            options: {
-              presets: ["@babel/preset-env", "@babel/preset-react"],
-            },
-          },
-        },
-        {
-          test: /\.s[ac]ss$/,
-          exclude: /node_modules/,
-          use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+          use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader', 'postcss-loader'],
         },
         {
           test: /\.(png|jpe?g|svg)$/i,
@@ -101,6 +53,62 @@ module.exports = [
     plugins: [new MiniCssExtractPlugin()],
     resolve: {
       extensions: ['.jsx', '.js'],
+    },
+    optimization: {
+      minimizer: [
+        new CssMinimizerPlugin(),
+      ],
+    },
+  }, {
+    name: 'server',
+    mode: 'production',
+    target: 'node',
+    devtool: 'source-map',
+    entry: './src/server-rendering/renderer',
+    output: {
+      path: dist,
+      filename: 'server.js',
+      libraryTarget: 'commonjs2',
+    },
+    module: {
+      rules: [
+        {
+          test: /\.(js|jsx)$/,
+          exclude: /node_modules/,
+          use: {
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env', '@babel/preset-react'],
+            },
+          },
+        },
+        {
+          test: /\.(css|s[ac]ss)$/,
+          exclude: /node_modules/,
+          use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader', 'postcss-loader'],
+        },
+        {
+          test: /\.(png|jpe?g|svg)$/i,
+          use: [
+            {
+              loader: 'file-loader',
+              options: {
+                name: '[path][name].[ext]',
+                publicPath: '/',
+              },
+            },
+          ],
+        },
+      ],
+    },
+    plugins: [new MiniCssExtractPlugin()],
+    resolve: {
+      extensions: ['.jsx', '.js'],
+    },
+    optimization: {
+      minimizer: [
+        new CssMinimizerPlugin(),
+      ],
     },
   },
 ];
