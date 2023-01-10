@@ -40,7 +40,7 @@ const Wishlist = () => {
             {wishlistItemList.map(({ title, imgUrl }) => (
               <li key={imgUrl} className="wishlist__item">
                 <PosterImage posterPath={imgUrl} />
-                <span className="wishlist__item-title">{title}</span>
+                <h2 className="wishlist__item-title">{title}</h2>
               </li>
             ))}
           </ul>

@@ -1,6 +1,7 @@
 @use "../../assets/sass/fonts" as text;
+@use "../../assets/sass/responsive" as size;
 @use "../../assets/sass/colors";
-@use "../../assets/sass/layout";
+@use "../../assets/sass/base";
 
 .wishlist {
   width: 100%;
@@ -23,37 +24,55 @@
 }
 
 .wishlist__item {
+  width:150px;
+  height:200px;
   margin: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding:15px;
-  @include layout.rounded-grey-border;
+  text-align:center;
+  @include base.rounded-grey-border;
+
+  @include size.respond-to("extra-large") {
+    width:300px;
+    height:350px;
+  }
 
   img {
-    width:100px;
-    height:140px;
+    @include base.image-poster-small;
+
+    @include size.respond-to("extra-large") {
+      @include base.image-poster-large;
+    }
   }
 }
 
 .wishlist__item-title {
   margin-top:10px;
+  padding: 0 5px;
   @include text.default-font-xs;
+
+  @include size.respond-to("extra-large") {
+    @include text.default-font-s;
+  }
 }
 
-.wishlist_empty-cta {
+.wishlist__empty-text {
+  @include base.line-height;
+}
+
+.wishlist__empty-cta {
   border: none;
   margin-top: 20px;
   padding: 10px;
   background: var(--color-light-grey);
   border-radius: 6px;
   transition: all 0.4s;
-
   @include text.default-font-s;
 
   &:hover {
-    @include layout.semi-opacity;
+    @include base.semi-opacity;
   }
 
   a,

@@ -1,13 +1,13 @@
 @use "../../assets/sass/fonts" as text;
 @use "../../assets/sass/colors";
-@use "../../assets/sass/layout";
+@use "../../assets/sass/base";
 
 .poster-img,
 .poster-img_placeholder {
   height: 100%;
   width: 100%;
 
-  @include layout.rounded;
+  @include base.rounded;
 }
 
 .poster-img {

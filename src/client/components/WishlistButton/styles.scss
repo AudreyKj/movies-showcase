@@ -1,6 +1,6 @@
 @use "../../assets/sass/fonts" as text;
 @use "../../assets/sass/colors";
-@use "../../assets/sass/layout";
+@use "../../assets/sass/base";
 
 %wishlist-cta {
   padding: 15px;
@@ -8,38 +8,38 @@
   border: none;
   color: var(--color-text-contrast);
 
-  @include layout.rounded;
+  @include base.rounded;
 
   transition: all 0.3s;
   cursor: pointer;
 
   &:hover {
-    @include layout.semi-opacity;
+    @include base.semi-opacity;
   }
 
   &:disabled {
     cursor: not-allowed;
-    @include layout.semi-opacity;
+    @include base.semi-opacity;
   }
 }
 
 .wishlist-cta_comedy {
   @extend %wishlist-cta;
-  @include text.comedy-genre-font-s;
+  @include text.comedy-font-style;
 
-  background: var(--color-background-button-comedy);
+  background: var(--color-background-comedy);
 }
 
 .wishlist-cta_western {
   @extend %wishlist-cta;
-  @include text.western-genre-font-s;
+  @include text.western-font-style;
 
-  background: var(--color-background-button-western);
+  background: var(--color-background-western);
 }
 
 .wishlist-cta_music {
   @extend %wishlist-cta;
-  @include text.music-genre-font-s;
+  @include text.music-font-style;
 
-  background: var(--color-background-button-music);
+  background: var(--color-background-music);
 }

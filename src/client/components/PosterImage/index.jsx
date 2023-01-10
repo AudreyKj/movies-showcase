@@ -17,13 +17,16 @@ const PosterImage = ({ posterPath }) => {
       {isLoadingProgress && <PosterImagePlaceholder />}
 
       {isLoadingSuccessful ? (
-        <img
-          onLoad={handleImageLoaded}
-          onError={handleImageLoadError}
-          className={loaded ? 'poster-img' : 'poster-img_invisible'}
-          src={`https://image.tmdb.org/t/p/w500${posterPath}`}
-          alt="movie poster"
-        />
+        <picture>
+          <source media="(min-width:2000px)" srcSet={`https://image.tmdb.org/t/p/w780${posterPath}`} />
+          <img
+            onLoad={handleImageLoaded}
+            onError={handleImageLoadError}
+            className={loaded ? 'poster-img' : 'poster-img_invisible'}
+            src={`https://image.tmdb.org/t/p/w500${posterPath}`}
+            alt="movie poster"
+          />
+        </picture>
       ) : (
         <PosterImagePlaceholder>
           <p className="poster-img_error">could not load image</p>
