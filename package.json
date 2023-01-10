@@ -12,8 +12,7 @@
     "start": "concurrently 'npm run dev-api' 'npm run dev-app'",
     "build": "webpack --mode=production --config webpack-config/webpack.prod.js",
     "test-unit": "jest --testPathPattern=src/client/testing/unit-testing --watchAll",
-    "test-e2e": "cypress run",
-    "heroku-postbuild": "npm install && npm run build && npm start"
+    "test-e2e": "cypress run"
   },
   "jest": {
     "testEnvironment": "jsdom",
