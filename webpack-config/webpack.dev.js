@@ -52,6 +52,9 @@ module.exports = [
     },
     plugins: [
       new webpack.HotModuleReplacementPlugin(),
+      new webpack.DefinePlugin({
+        'process.env.API_URL': JSON.stringify(process.env.API_URL || 'http://localhost:8080'),
+      }),
     ],
     resolve: {
       extensions: ['.jsx', '.js'],
