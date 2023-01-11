@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PosterImage from '../PosterImage';
 import useIsInViewport from './useInViewport';
@@ -7,6 +7,9 @@ import arrowLeftIcon from '../../assets/icons/arrowLeft.svg';
 import './styles.scss';
 
 const Carousel = ({ movieList, genre }) => {
+  const [isPrevButtonVisible, setIsPrevButtonVisible] = useState(false);
+  const [isNextButtonVisible, setIsNextButtonVisible] = useState(true);
+
   const firstItemRef = useRef(null);
   const lastItemRef = useRef(null);
   const itemRef = useRef(null);
@@ -16,8 +19,13 @@ const Carousel = ({ movieList, genre }) => {
   const isFirstItemInViewport = useIsInViewport(firstItemRef);
   const isLastItemInViewport = useIsInViewport(lastItemRef);
 
-  const isPrevButtonVisible = !isFirstItemInViewport;
-  const isNextButtonVisible = !isLastItemInViewport;
+  useEffect(() => {
+    setIsPrevButtonVisible(!isFirstItemInViewport);
+  }, [isFirstItemInViewport]);
+
+  useEffect(() => {
+    setIsNextButtonVisible(!isLastItemInViewport);
+  }, [isLastItemInViewport]);
 
   const handleNextClick = () => {
     const { scrollLeft } = carouselRef.current;
