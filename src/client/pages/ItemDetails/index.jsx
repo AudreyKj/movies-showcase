@@ -1,8 +1,9 @@
 /* eslint-disable camelcase */
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import ImageDescriptionArea from './ImgDescriptionArea';
-import AdditionalInfoArea from './AdditionalInfoArea';
+import ImageDescriptionArea from '../../components/ImageDescriptionArea';
+import AdditionalInfoArea from '../../components/AdditionalInfoArea';
+import './styles.scss';
 
 const ItemDetails = () => {
   const {

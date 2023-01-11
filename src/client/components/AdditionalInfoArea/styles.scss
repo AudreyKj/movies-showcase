@@ -1,0 +1,17 @@
+@use "../../assets/sass/base";
+
+.item-details__additional-info-wrapper {
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+  
+    @include base.rounded-grey-border;
+  }
+  
+  .item-details__additional-info-list {
+    list-style: circle;
+    @include base.line-height;
+  }

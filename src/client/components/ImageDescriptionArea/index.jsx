@@ -1,9 +1,11 @@
 import React from 'react';
-import PosterImage from '../../components/PosterImage';
-import WishlistButton from '../../components/WishlistButton';
+import PosterImage from '../PosterImage';
+import WishlistButton from '../WishlistButton';
 import './styles.scss';
 
-const ImageDescriptionArea = ({ posterPath, originalTitle, description, genre }) => (
+const ImageDescriptionArea = ({
+  posterPath, originalTitle, description, genre,
+}) => (
   <section className="item-details__img-description-wrapper">
     <div className="item-details__img-description-container">
       <div className="item-details__image-area">
