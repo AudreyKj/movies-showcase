@@ -26,13 +26,15 @@ This web app is responsive across devices.
 - end-to-end testing with Cypress
 
 ## Security 
-The API [TheMovieDatabase](https://developers.themoviedb.org/3/getting-started/authentication) requires authentification with a private API key. To prevent the API key from being embedded in the Webpack bundle (and being visible to anyone who inspects the code), a separate Express server calls the TheMovieDatabase API and serves the app.
+The API [TheMovieDatabase](https://developers.themoviedb.org/3/getting-started/authentication) requires authentification with a private API key. To prevent the API key from being embedded in the final Webpack bundle (and being visible to anyone who inspects the code), a separate Express server calls the TheMovieDatabase API and serves the app.
 
 ## Performance & User Experience
-To ensure performance, the homepage indicates the loading of API's response and 
-the carousel images display a placeholder during loading. API requests and image source loading erros are also handled to ensure best user experience in all conditions.
+The loading of ressources and errors are handled for best user experience:
+- the homepage indicates the loading of the API response 
+- the carousel images display a placeholder during loading
+- API and image source loading erros are handled with error messages
 
-The bundling with Webpack is also optimized: the code and styling are minified and `source-map` is used as a dev-tool for its build speed.
+The bundling with Webpack is optimized for production: the code and styling are minified and `source-map` is used as a dev-tool for its build speed.
 
 ## Accessibility & Cross-Browser
 This app was built to be accessible to everyone. The elements are structured with semantic markup and they were built to deliver the same experience to all users. 
@@ -58,11 +60,16 @@ npm install
 - Run the app locally in development mode:
 
 ```bash
-npm run dev 
+npm start
 ```
 
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
+- Webpack production bundling:
+
+```bash
+npm run build
+```
 
 ## Testing 
 
@@ -74,9 +81,9 @@ Run these commands in the project directory:
 npm run test-unit
 ```
 
-- E2E tests using Cypress (located at: `cypress/e2e`): 
+- E2E tests using Cypress (located at: `src/client/testing/e2e-testing`): 
 
-Make sure your local server is running (*npm start*)
+Make sure your local server is running (*npm start*) before running the E2E tests.
 
 To run the tests:
 ```bash
@@ -87,20 +94,26 @@ npm run test-e2e
 Each carousel is a different category: Western / Music / Comedy movies:
 ![screenshot](screenshots/carousel-1.png)
 
-The next/prev buttons appear programatically based on scroll:
-![screenshot 2](screenshots/carousel-2.png)
+The carousel next/prev buttons appear programatically based on scroll:
+![screenshot](screenshots/carousel-2.png)
 
 Details page for item from Western category (brown button & `Verdana` font):
 ![screenshot](screenshots/western.png)
 
 Details page for item from Music category (blue button & `Courier New` font):
-![screenshot 2](screenshots/music.png)
+![screenshot](screenshots/music.png)
 
 Details page for item from Comedy category (pink button & `Times New Roman` font):
-![screenshot 2](screenshots/comedy.png)
+![screenshot](screenshots/comedy.png)
 
 Empty wishlist:
-![screenshot 2](screenshots/wishlist-empty.png)
+![screenshot](screenshots/wishlist-empty.png)
 
 Wishlist with items:
-![screenshot 2](screenshots/wishlist-full.png)
+![screenshot](screenshots/wishlist-full.png)
+
+Error handling for API error:
+![screenshot](screenshots/error-api.png)
+
+Error handling for image source loading error:
+![screenshot](screenshots/error-image.png)
