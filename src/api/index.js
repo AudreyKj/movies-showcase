@@ -4,7 +4,6 @@ const axios = require('axios');
 require('dotenv').config();
 
 const app = express();
-const port = process.env.PORT || 8080;
 
 const comedyGenreId = 35;
 const musicGenreId = 10402;
@@ -38,4 +37,4 @@ app.get('/movies/collection', async (req, res) => {
   }
 });
 
-app.listen(port);
+app.listen(process.env.PORT || 8080);
