@@ -36,12 +36,13 @@ This web app is responsive across devices.
 The API [TheMovieDatabase](https://developers.themoviedb.org/3/getting-started/authentication) requires authentification with a private API key. To prevent the API key from being embedded in the final Webpack bundle (and being visible to anyone who inspects the code), a separate Express server calls the TheMovieDatabase API and serves the app.
 
 ## Performance & User Experience
-The loading of ressources and errors are handled for best user experience:
-- the homepage indicates the loading of the API response 
-- the carousel images display a placeholder during loading
-- API and image source loading erros are handled with error messages
+The React app uses route-based code splitting to optimize bundling. The build also includes specific production optimizations: the code and styling are minified and `source-map` is used as a dev-tool for its build speed.
 
-The bundling with Webpack is optimized for production: the code and styling are minified and `source-map` is used as a dev-tool for its build speed.
+The loading of ressources and errors are handled by the UI for best user experience:
+- the homepage indicates the loading / error of the API response 
+- the carousel images display a placeholder during loading and a message in case of error
+
+If it is empty, the Wishlist invites the user to browse the collection and add items.
 
 ## Accessibility & Cross-Browser
 This app was built to be accessible to everyone. The elements are structured with semantic markup and they were built to deliver the same experience to all users. 
@@ -113,7 +114,7 @@ Details page for item from Music category (blue button & `Courier New` font):
 Details page for item from Comedy category (pink button & `Times New Roman` font):
 ![screenshot](screenshots/comedy.png)
 
-Empty wishlist:
+Empty wishlist notification message:
 ![screenshot](screenshots/wishlist-empty.png)
 
 Wishlist with items:

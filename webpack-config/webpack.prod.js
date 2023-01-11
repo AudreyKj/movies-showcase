@@ -20,17 +20,13 @@ module.exports = [
       rules: [
         {
           test: /\.(js|jsx)$/,
-          exclude: /node_modules/,
+          exclude: [/node_modules/, '/src/client/testing'],
           use: {
             loader: 'babel-loader',
             options: {
               presets: ['@babel/preset-env', '@babel/preset-react'],
             },
           },
-        },
-        {
-          test: /\.css$/,
-          use: ['style-loader', 'css-loader'],
         },
         {
           test: /\.(css|s[ac]ss)$/,

@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import {
   createBrowserRouter,
   Navigate,
 } from 'react-router-dom';
-import Home from './pages/Home';
-import ItemDetails from './pages/ItemDetails';
-import Wishlist from './pages/Wishlist';
+import Loader from './components/Loader/index';
 import App from './App';
+
+const Home = React.lazy(() => import('./pages/Home'));
+const ItemDetails = React.lazy(() => import('./pages/ItemDetails'));
+const Wishlist = React.lazy(() => import('./pages/Wishlist'));
 
 const router = createBrowserRouter([
   {
@@ -18,16 +20,16 @@ const router = createBrowserRouter([
       },
       {
         path: 'home',
-        element: <Home />,
+        element: <Suspense fallback={null}><Home /></Suspense>,
         index: true,
       },
       {
         path: 'movies/:movieId',
-        element: <ItemDetails />,
+        element: <Suspense fallback={<Loader />}><ItemDetails /></Suspense>,
       },
       {
         path: 'mywishlist',
-        element: <Wishlist />,
+        element: <Suspense fallback={<Loader />}><Wishlist /></Suspense>,
       },
     ],
   }]);
