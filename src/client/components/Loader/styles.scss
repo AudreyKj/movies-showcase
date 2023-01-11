@@ -1,9 +1,9 @@
 @use "../../assets/sass/colors";
 
 .loader {
-  display: inline-block;
   width: 30px;
   height: 30px;
+  display: inline-block;
   border: 3px solid var(--color-light-grey);
   border-radius: 50%;
   border-top-color: var(--color-dark-grey);

@@ -26,16 +26,8 @@
   @include text.default-font-m;
 
   cursor: pointer;
-
-  a, 
-  a:hover,
-  a:visited,
-  a:active {
-    color: var(--color-text-contrast);
-    text-decoration: none;
-    text-transform: none;
-  }
 }
+
 
 .header__nav {
   position: relative;
@@ -68,6 +60,16 @@
 
   &:hover {
     @include base.semi-opacity;
+  }
+}
+
+.header__heading-link {
+  @include base.link-default-style;
+
+  &:hover,
+  &:visited,
+  &:active {
+    @include base.link-default-style;
   }
 }
 

@@ -11,7 +11,7 @@ const Header = () => (
   <header className="header" role="banner">
     <h1 className="header__heading">
       {' '}
-      <Link to="home" data-testid="heading-title">Movies Showcase</Link>
+      <Link className="header__heading-link" to="home" data-testid="heading-title">Movies Showcase</Link>
     </h1>
 
     <nav className="header__nav">

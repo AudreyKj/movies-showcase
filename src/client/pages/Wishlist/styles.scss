@@ -59,6 +59,7 @@
 }
 
 .wishlist__empty-text {
+  @include text.default-font-m;
   @include base.line-height;
 }
 
@@ -74,13 +75,14 @@
   &:hover {
     @include base.semi-opacity;
   }
+}
 
-  a,
-  a:visited,
-  a:hover,
-  a:active {
-    color: var(--color-text-contrast);
-    text-transform: none;
-    text-decoration: none;
+.wishlist__empty-cta-link {
+  @include base.link-default-style;
+
+  &:hover,
+  &:visited,
+  &:active {
+    @include base.link-default-style;
   }
 }

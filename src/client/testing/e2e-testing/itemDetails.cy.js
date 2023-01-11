@@ -1,5 +1,3 @@
-const zorroWesternScr = 'duZDsuIA2uX93Vujtm89oHeTFqE.jpg';
-
 describe('item details page features item info and button for add to wishlist action', () => {
   beforeEach(() => {
     cy.visit('/');
@@ -19,7 +17,7 @@ describe('item details page features item info and button for add to wishlist ac
     cy.get('p').should('exist');
   });
 
-  it('on click, the button triggers an Add to Wishlist action and user can view item in wishlist', () => {
+  it('on click, the button triggers an Add to Wishlist action that adds item to wishlist section', () => {
     cy.get('button').contains('Add to Wishlist').click();
     cy.wait(2000);
 
@@ -29,10 +27,7 @@ describe('item details page features item info and button for add to wishlist ac
     cy.get('button').contains('my wishlist').click();
     cy.wait(1000);
 
-    cy.get('[data-testid="wishlist-section"]').each(($el) => {
-      cy.wrap($el)
-        .find('img')
-        .should('have.length', 1);
-    });
+    cy.get('[data-testid="wishlist-section"]').find('img').should('have.length', 1);
+    cy.get('[data-testid="wishlist-section"]').find('h2').should('have.length', 1);
   });
 });

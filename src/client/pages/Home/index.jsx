@@ -17,10 +17,10 @@ const Home = () => {
   || !isListDataReady(musicMoviesList);
 
   useEffect(() => {
-    getMoviesCollection().then((collection) => {
-      setComedyMoviesList(collection.comedy);
-      setWesternMoviesList(collection.western);
-      setMusicMoviesList(collection.music);
+    getMoviesCollection().then(({ western, music, comedy }) => {
+      setWesternMoviesList(western);
+      setMusicMoviesList(music);
+      setComedyMoviesList(comedy);
     }).catch(() => {
       setError(true);
     });

@@ -23,7 +23,7 @@ describe('homepage displays 3 carousels with interactive images', () => {
 
     cy.wait(3000);
     cy.get('[data-testid="item-details-page"]').should('have.class', 'item-details_western');
-    cy.get('[data-testid="category-genre"]').should('include.text', 'Western');
+    cy.get('[data-testid="item-details-category-genre"]').should('include.text', 'Western');
 
     cy.visit('/');
     cy.wait(3000);
@@ -40,7 +40,7 @@ describe('homepage displays 3 carousels with interactive images', () => {
 
     cy.wait(3000);
     cy.get('[data-testid="item-details-page"]').should('have.class', 'item-details_music');
-    cy.get('[data-testid="category-genre"]').should('include.text', 'Music');
+    cy.get('[data-testid="item-details-category-genre"]').should('include.text', 'Music');
 
     cy.visit('/');
     cy.wait(3000);
@@ -57,6 +57,6 @@ describe('homepage displays 3 carousels with interactive images', () => {
 
     cy.wait(3000);
     cy.get('[data-testid="item-details-page"]').should('have.class', 'item-details_comedy');
-    cy.get('[data-testid="category-genre"]').should('include.text', 'Comedy');
+    cy.get('[data-testid="item-details-category-genre"]').should('include.text', 'Comedy');
   });
 });

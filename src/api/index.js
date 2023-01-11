@@ -5,6 +5,7 @@ require('dotenv').config();
 
 const app = express();
 
+// IDs from themoviedb API
 const comedyGenreId = 35;
 const musicGenreId = 10402;
 const westernGenreId = 37;

@@ -15,6 +15,7 @@ const ItemDetails = () => {
   const genreCustomStyling = `item-details_${genre}`;
 
   const capitalizeFirstLetter = (word) => word.charAt(0).toUpperCase() + word.slice(1);
+  const getReleaseYear = (releaseDate) => releaseDate.split('-')[0];
 
   return (
     <section className={`item-details ${genreCustomStyling}`} data-testid="item-details-page">
@@ -33,7 +34,7 @@ const ItemDetails = () => {
       </section>
       <section className="item-details__additional-info-wrapper">
         <ul className="item-details__additional-info-list">
-          <li data-testid="category-genre">
+          <li data-testid="item-details-category-genre">
             Genre:
             {' '}
             <b>{capitalizeFirstLetter(genre)}</b>
@@ -49,9 +50,9 @@ const ItemDetails = () => {
             {original_language}
           </li>
           <li>
-            Release date:
+            Release year:
             {' '}
-            {release_date}
+            {getReleaseYear(release_date)}
           </li>
         </ul>
       </section>
