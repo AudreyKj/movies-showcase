@@ -25,6 +25,13 @@ This web app is responsive across devices.
 - unit testing with Jest, React Testing Library
 - end-to-end testing with Cypress
 
+## Styling with SASS
+- The naming convention used is [BEM](https://en.bem.info/methodology/naming-convention/#naming-rules). 
+- The app's styling is applied over a style reset (stored in: `src/client/assets/sass`) to ensure cross-browser compatibility
+- The styling was built with reusability in mind: common styles are abstracted in `src/client/assets/sass`
+- Webpack bundles SASS with `sass-loader`
+- Browser compliant styling handled by [Autoprefixer](https://github.com/postcss/autoprefixer) for production builds
+
 ## Security 
 The API [TheMovieDatabase](https://developers.themoviedb.org/3/getting-started/authentication) requires authentification with a private API key. To prevent the API key from being embedded in the final Webpack bundle (and being visible to anyone who inspects the code), a separate Express server calls the TheMovieDatabase API and serves the app.
 
