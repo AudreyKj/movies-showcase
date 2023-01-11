@@ -34,7 +34,7 @@ const Home = () => {
 
   return (
     <HomeLayout>
-      {error && <p> Error: movie list could not be fetched. Please try again later! </p>}
+      {error && <p> Error: movie list could not be fetched; please try again later! </p>}
       {isListDataReady(westernMoviesList) && <Carousel movieList={westernMoviesList} genre="western" />}
       {isListDataReady(musicMoviesList) && <Carousel movieList={musicMoviesList} genre="music" />}
       {isListDataReady(comedyMoviesList) && <Carousel movieList={comedyMoviesList} genre="comedy" />}
