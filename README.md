@@ -25,6 +25,9 @@ This web app is responsive across devices.
 - unit testing with Jest, React Testing Library
 - end-to-end testing with Cypress
 
+## Server-side rendering (SSR)
+The React app supports SSR: a Node.js Express server (in `src/client/server-rendering`) sends a ready-to-be-rendered response to the browser.
+
 ## Styling with SASS
 - The naming convention used is [BEM](https://en.bem.info/methodology/naming-convention/#naming-rules). 
 - The app's styling is applied over a style reset to ensure cross-browser compatibility
@@ -36,15 +39,15 @@ This web app is responsive across devices.
 The API [TheMovieDatabase](https://developers.themoviedb.org/3/getting-started/authentication) requires authentification with a private API key. To prevent the API key from being embedded in the final Webpack bundle (and being visible to anyone who inspects the code), a separate Express server calls the TheMovieDatabase API and serves the app.
 
 ## Performance & User Experience
-The React app uses route-based code splitting to optimize bundling. In production, the build is optimized: the code and styling are minified and `source-map` is used as a dev-tool for its build speed.
+The React app uses route-based code splitting to optimize bundling. In production, the code and styling are minified and `source-map` is used as a dev-tool for its build speed.
 
 The loading of ressources and errors are handled by the UI for best user experience:
 - the homepage indicates the loading / error of the API response 
 - the images display a placeholder during loading and a message in case of error
 
-The Wishlist section shows its status to the useer:
-- It displays the item count and the items that have been added to the Wishlist
-- If it is empty, the Wishlist invites the user to browse the collection and add items.
+The Wishlist section shows its status to the user:
+- It displays the item count & the items that have been added to the Wishlist
+- If it is empty, the user is invited to browse the collection and add items.
 
 ## Accessibility & Cross-Browser
 This app was built to be accessible to everyone. The elements are structured with semantic markup and they were built to deliver the same experience to all users. 
@@ -75,7 +78,7 @@ npm start
 
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-- Webpack production bundling:
+Generate the Webpack production build:
 
 ```bash
 npm run build
@@ -107,13 +110,13 @@ Each carousel is a different category: Western / Music / Comedy movies:
 The carousel next/prev buttons appear programatically based on scroll:
 ![screenshot](screenshots/carousel-2.png)
 
-Details page for item from Western category (brown button & `Verdana` font):
+Details page for item from `Western` category (brown button, `Verdana` font & genre info):
 ![screenshot](screenshots/western.png)
 
-Details page for item from Music category (blue button & `Courier New` font):
+Details page for item from `Music` category (blue button, `Courier New` font & genre info):
 ![screenshot](screenshots/music.png)
 
-Details page for item from Comedy category (pink button & `Times New Roman` font):
+Details page for item from `Comedy` category (pink button, `Times New Roman` font & genre info):
 ![screenshot](screenshots/comedy.png)
 
 Empty wishlist notification message:
