@@ -27,7 +27,7 @@ This web app is responsive across devices.
 
 ## Styling with SASS
 - The naming convention used is [BEM](https://en.bem.info/methodology/naming-convention/#naming-rules). 
-- The app's styling is applied over a style reset (stored in: `src/client/assets/sass`) to ensure cross-browser compatibility
+- The app's styling is applied over a style reset to ensure cross-browser compatibility
 - The styling was built with reusability in mind: common styles are abstracted in `src/client/assets/sass`
 - Webpack bundles SASS with `sass-loader`
 - Browser compliant styling handled by [Autoprefixer](https://github.com/postcss/autoprefixer) for production builds
@@ -36,13 +36,15 @@ This web app is responsive across devices.
 The API [TheMovieDatabase](https://developers.themoviedb.org/3/getting-started/authentication) requires authentification with a private API key. To prevent the API key from being embedded in the final Webpack bundle (and being visible to anyone who inspects the code), a separate Express server calls the TheMovieDatabase API and serves the app.
 
 ## Performance & User Experience
-The React app uses route-based code splitting to optimize bundling. The build also includes specific production optimizations: the code and styling are minified and `source-map` is used as a dev-tool for its build speed.
+The React app uses route-based code splitting to optimize bundling. In production, the build is optimized: the code and styling are minified and `source-map` is used as a dev-tool for its build speed.
 
 The loading of ressources and errors are handled by the UI for best user experience:
 - the homepage indicates the loading / error of the API response 
-- the carousel images display a placeholder during loading and a message in case of error
+- the images display a placeholder during loading and a message in case of error
 
-If it is empty, the Wishlist invites the user to browse the collection and add items.
+The Wishlist section shows its status to the useer:
+- It displays the item count and the items that have been added to the Wishlist
+- If it is empty, the Wishlist invites the user to browse the collection and add items.
 
 ## Accessibility & Cross-Browser
 This app was built to be accessible to everyone. The elements are structured with semantic markup and they were built to deliver the same experience to all users. 
@@ -123,5 +125,5 @@ Wishlist with items:
 Error handling for API error:
 ![screenshot](screenshots/error-api.png)
 
-Error handling for image source loading error:
+Error handling for image source loading error (in this example, all the images' source fail to load):
 ![screenshot](screenshots/error-image.png)

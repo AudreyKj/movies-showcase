@@ -1,9 +1,8 @@
+/* eslint-disable camelcase */
 import React, { useEffect, useRef, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import PosterImage from '../PosterImage';
+import ArrowButton from './ArrowButton';
+import CarouselItem from './CarouselItem';
 import useIsInViewport from './useInViewport';
-import arrowRightIcon from '../../assets/icons/arrowRight.svg';
-import arrowLeftIcon from '../../assets/icons/arrowLeft.svg';
 import './styles.scss';
 
 const Carousel = ({ movieList, genre }) => {
@@ -14,7 +13,6 @@ const Carousel = ({ movieList, genre }) => {
   const lastItemRef = useRef(null);
   const itemRef = useRef(null);
   const carouselRef = useRef(null);
-  const navigate = useNavigate();
 
   const isFirstItemInViewport = useIsInViewport(firstItemRef);
   const isLastItemInViewport = useIsInViewport(lastItemRef);
@@ -54,23 +52,28 @@ const Carousel = ({ movieList, genre }) => {
   return (
     <section className="carousel" data-testid={`carousel-element-${genre}`}>
       {isPrevButtonVisible && (
-      <button data-testid="carousel-prev-button" type="button" className="carousel__arrow-button carousel__prev-item" onClick={handlePrevClick}>
-        <img src={arrowLeftIcon} alt="arrow left" />
-      </button>
+      <ArrowButton position="prev" handleClick={handlePrevClick} />
       )}
       <ul ref={carouselRef} className="carousel__list" data-testid="carousel-list">
-        {movieList.map((movieItem, index) => (
-          <li className="carousel__item" key={movieItem.id} ref={index === 0 ? firstItemRef : index === movieList.length - 1 ? lastItemRef : itemRef}>
-            <button type="button" onClick={() => navigate(`/movies/${movieItem.id}`, { state: { genre, ...movieItem } })} data-testid="carousel-item-button">
-              <PosterImage posterPath={movieItem.poster_path} />
-            </button>
+        {movieList.map(({
+          overview, original_title, original_language,
+          release_date, poster_path, id,
+        }, index) => (
+          <li className="carousel__item" key={id} ref={index === 0 ? firstItemRef : index === movieList.length - 1 ? lastItemRef : itemRef}>
+            <CarouselItem
+              id={id}
+              genre={genre}
+              overview={overview}
+              originalTitle={original_title}
+              originalLanguage={original_language}
+              releaseDate={release_date}
+              posterPath={poster_path}
+            />
           </li>
         ))}
       </ul>
       {isNextButtonVisible && (
-      <button data-testid="carousel-next-button" type="button" className="carousel__arrow-button carousel__next-item" onClick={handleNextClick}>
-        <img src={arrowRightIcon} alt="arrow right" />
-      </button>
+      <ArrowButton position="next" handleClick={handleNextClick} />
       )}
     </section>
   );

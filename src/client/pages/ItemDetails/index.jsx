@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import ImageDescriptionArea from '../../components/ImageDescriptionArea';
@@ -8,7 +7,7 @@ import './styles.scss';
 const ItemDetails = () => {
   const {
     state: {
-      genre, overview, original_title, original_language, release_date, poster_path,
+      genre, overview, originalTitle, originalLanguage, releaseDate, posterPath,
     },
   } = useLocation();
 
@@ -17,15 +16,15 @@ const ItemDetails = () => {
   return (
     <section className={`item-details ${genreCustomStyling}`} data-testid="item-details-page">
       <ImageDescriptionArea
-        posterPath={poster_path}
-        originalTitle={original_title}
+        posterPath={posterPath}
+        originalTitle={originalTitle}
         description={overview}
         genre={genre}
       />
       <AdditionalInfoArea
-        originalTitle={original_title}
-        originalLanguage={original_language}
-        releaseDate={release_date}
+        originalTitle={originalTitle}
+        originalLanguage={originalLanguage}
+        releaseDate={releaseDate}
         genre={genre}
       />
     </section>

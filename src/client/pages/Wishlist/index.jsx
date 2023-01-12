@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import EmptyWishlistText from './EmptyWishlistText';
-import PosterImage from '../../components/PosterImage';
+import WishlistItem from './WishlistItem';
 import './styles.scss';
 
 const Wishlist = () => {
@@ -38,10 +38,7 @@ const Wishlist = () => {
           </span>
           <ul className="wishlist__list">
             {wishlistItemList.map(({ title, imgUrl }) => (
-              <li key={imgUrl} className="wishlist__item">
-                <PosterImage posterPath={imgUrl} />
-                <h2 className="wishlist__item-title">{title}</h2>
-              </li>
+              <WishlistItem key={imgUrl} title={title} imgUrl={imgUrl} />
             ))}
           </ul>
         </>
